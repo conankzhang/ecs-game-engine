@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="Includes.h" />
+    <ClInclude Include="5.3.4\src\lapi.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lauxlib.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lcode.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lctype.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\ldebug.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\ldo.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lfunc.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lgc.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\llex.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\llimits.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lmem.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lobject.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lopcodes.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lparser.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lprefix.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lstate.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lstring.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\ltable.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\ltm.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lua.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lua.hpp">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\luaconf.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lualib.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lundump.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lvm.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="5.3.4\src\lzio.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="5.3.4\License.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source">
+      <UniqueIdentifier>{720fd9f0-80f1-497a-85f9-532ac6d2b7cb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="5.3.4\src\lapi.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lauxlib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lbaselib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lbitlib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lcode.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lcorolib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lctype.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\ldblib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\ldebug.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\ldo.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\ldump.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lfunc.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lgc.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\linit.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\liolib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\llex.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lmathlib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lmem.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\loadlib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lobject.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lopcodes.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\loslib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lparser.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lstate.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lstring.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lstrlib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\ltable.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\ltablib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\ltm.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lundump.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lutf8lib.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lvm.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="5.3.4\src\lzio.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
