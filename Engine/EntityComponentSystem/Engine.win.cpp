@@ -43,6 +43,7 @@ namespace eae6320
 		void ECSEngine::Update(float deltaTime)
 		{
 			m_systemManager->Update(deltaTime);
+			m_entityManager->RemoveEntities();
 		}
 	}
 }

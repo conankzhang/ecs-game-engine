@@ -33,10 +33,13 @@ namespace eae6320
 
 		ComponentManager::~ComponentManager()
 		{
-			for (auto component : m_componentMap)
+			for (auto components : m_componentMap)
 			{
-				delete component.second;
-				component.second = nullptr;
+				for (auto component : components.second)
+				{
+					delete component;
+					component = nullptr;
+				}
 			}
 		}
 	}

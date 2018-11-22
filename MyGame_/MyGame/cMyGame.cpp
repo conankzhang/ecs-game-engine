@@ -103,7 +103,6 @@ void eae6320::cMyGame::UpdateSimulationBasedOnInput()
 
 	m_object1->SetVelocity(eae6320::Math::sVector(x_object, y_object, 0.0f));
 
-
 	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Shift))
 	{
 		m_shiftPressed = true;
