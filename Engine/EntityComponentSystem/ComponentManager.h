@@ -58,9 +58,7 @@ namespace eae6320
 
 				const size_t componentId = m_entityComponentMap[i_entityId][componentTypeId];
 
-				IComponent* component = m_componentMap[componentId];
-
-				delete component;
+				m_componentMap.erase(componentId);
 
 				m_entityComponentMap[i_entityId][componentTypeId] = 0;
 

@@ -36,7 +36,7 @@ namespace eae6320
 
 		void EntityManager::RemoveEntities()
 		{
-			// TODO
+			// #TODO
 			m_numEntitiesToRemove = 0;
 		}
 	}

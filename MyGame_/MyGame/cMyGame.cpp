@@ -33,7 +33,7 @@ void eae6320::cMyGame::SubmitDataToBeRendered(const float i_elapsedSecondCount_s
 
 	eae6320::ECS::IEntity* entity = ECS->GetEntityManager()->GetEntity(demoEntityId);
 	eae6320::cPrefab* prefab = static_cast<eae6320::cPrefab*>(entity);
-	if (prefab && prefab->IsActive())
+	if (prefab && prefab->IsActive() && prefab->GetComponent<cRigidbodyComponent>())
 	{
 		eae6320::Graphics::SubmitGameObject(entity->GetComponent<cMeshComponent>()->GetMesh(), entity->GetComponent<cEffectComponent>()->GetEffect() , entity->GetComponent<cRigidbodyComponent>()->GetTransform(i_elapsedSecondCount_sinceLastSimulationUpdate));
 	}
