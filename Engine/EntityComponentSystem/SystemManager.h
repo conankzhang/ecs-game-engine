@@ -54,7 +54,7 @@ namespace eae6320
 				if (systemTypeId + 1 > m_systemDependencies.size())
 				{
 					m_systemDependencies.resize(systemTypeId + 1);
-					for (int i = 0; i < m_systemDependencies.size(); ++i)
+					for (size_t i = 0; i < m_systemDependencies.size(); ++i)
 					{
 						m_systemDependencies[i].resize(systemTypeId + 1);
 					}
