@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ECSBoids", "ECSBoids", "{E6C25188-EC72-42FA-9A01-0D026D84B659}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECSBoids", "ECSBoids_\ECSBoids\ECSBoids.vcxproj", "{8116F3C2-476D-4900-A4DF-82BB2B9F7224}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyGame", "MyGame", "{8C183FBC-2C11-4D6A-A657-8D6ECD5CA651}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MyGame", "MyGame_\MyGame\MyGame.vcxproj", "{DCAFB933-6112-4B0F-AEF4-3274C0B12600}"
@@ -105,10 +109,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EntityComponentSystem", "Engine\EntityComponentSystem\EntityComponentSystem.vcxproj", "{CB1FA5CF-D384-4638-83F0-5B27F4D1B29A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrefabBuilder", "Tools\PrefabBuilder\PrefabBuilder.vcxproj", "{8ABE2569-E48E-4268-8494-57D572992B49}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ECSBoids", "ECSBoids", "{E6C25188-EC72-42FA-9A01-0D026D84B659}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECSBoids", "ECSBoids_\ECSBoids\ECSBoids.vcxproj", "{8116F3C2-476D-4900-A4DF-82BB2B9F7224}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BuildECSBoidsAssets", "ECSBoids_\BuildECSBoidsAssets\BuildECSBoidsAssets.vcxproj", "{8EF47082-26FB-48D7-A9E2-2C5D9ECF475E}"
 	ProjectSection(ProjectDependencies) = postProject
