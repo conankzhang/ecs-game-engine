@@ -2,8 +2,8 @@
 	This class is your specific game
 */
 
-#ifndef EAE6320_CEXAMPLEGAME_H
-#define EAE6320_CEXAMPLEGAME_H
+#ifndef EAE6320_CECSBOIDS_H
+#define EAE6320_CECSBOIDS_H
 
 // Includes
 //=========
@@ -20,7 +20,7 @@
 
 namespace eae6320
 {
-	class cExampleGame : public Application::cbApplication
+	class cECSBoids : public Application::cbApplication
 	{
 		// Inherited Implementation
 		//=========================
@@ -102,4 +102,4 @@ namespace eae6320
 	}
 }
 
-#endif	// EAE6320_CEXAMPLEGAME_H
+#endif	// EAE6320_CECSBOIDS_H
