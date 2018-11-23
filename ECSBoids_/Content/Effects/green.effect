@@ -1,7 +1,7 @@
 return
 {
 	path_vertexShader = "Shaders/Vertex/standard.shader",
-	path_fragmentShader = "Shaders/Fragment/animated.shader",
+	path_fragmentShader = "Shaders/Fragment/green.shader",
 	AlphaTransparency = true,
 	DepthBuffering = true,
 	DrawBothTriangleSides = true,

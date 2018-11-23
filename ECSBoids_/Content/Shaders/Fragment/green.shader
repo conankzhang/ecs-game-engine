@@ -41,10 +41,9 @@ void main(
 
 	)
 {
-	// Output solid white
 	o_color = float4(
 		// RGB (color)
-		1.0, 1.0, 1.0,
+		0.10, 0.47, 0.40,
 		// Alpha (transparency)
 		1.0 );
 }
@@ -81,10 +80,9 @@ out vec4 o_color;
 
 void main()
 {
-	// Output solid white
 	o_color = vec4(
 		// RGB (color)
-		1.0, 1.0, 1.0,
+		0.10, 0.47, 0.40,
 		// Alpha (transparency)
 		1.0 );
 }

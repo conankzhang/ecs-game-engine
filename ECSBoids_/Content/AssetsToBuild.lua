@@ -18,7 +18,7 @@ return
 	
 	effects =
 	{
-		{ path = "Effects/animated.effect" },
+		{ path = "Effects/green.effect" },
 	},
 
 	prefabs =
