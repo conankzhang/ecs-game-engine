@@ -7,3 +7,4 @@
 #define IDI_EAEALIEN            102
 #define IDI_VSDEFAULT_LARGE     103
 #define IDI_VSDEFAULT_SMALL     104
+#define IDI_CZ     105

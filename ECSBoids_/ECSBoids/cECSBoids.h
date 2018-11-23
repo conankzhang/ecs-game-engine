@@ -36,7 +36,7 @@ namespace eae6320
 		// so that it's easy to tell at a glance what kind of build is running.
 		virtual const char* GetMainWindowName() const override
 		{
-			return "John-Paul's EAE6320 Example Game"
+			return "ECS Boids"
 				" -- "
 #if defined( EAE6320_PLATFORM_D3D )
 				"Direct3D"
@@ -57,14 +57,14 @@ namespace eae6320
 		// You don't need to worry about this for our class,
 		// but if you ever ship a real project using this code as a base you should set this to something unique
 		// (a generated GUID would be fine since this string is never seen)
-		virtual const char* GetMainWindowClassName() const override { return "John-Paul's EAE6320 Example Main Window Class"; }
+		virtual const char* GetMainWindowClassName() const override { return "ECS Boids Main Window Class"; }
 		// The following three icons are provided:
 		//	* IDI_EAEGAMEPAD
 		//	* IDI_EAEALIEN
 		//	* IDI_VSDEFAULT_LARGE / IDI_VSDEFAULT_SMALL
 		// If you want to try creating your own a convenient website that will help is: http://icoconvert.com/
-		virtual const WORD* GetLargeIconId() const override { static constexpr WORD iconId_large = IDI_VSDEFAULT_LARGE; return &iconId_large; }
-		virtual const WORD* GetSmallIconId() const override { static constexpr WORD iconId_small = IDI_VSDEFAULT_SMALL; return &iconId_small; }
+		virtual const WORD* GetLargeIconId() const override { static constexpr WORD iconId_large = IDI_CZ; return &iconId_large; }
+		virtual const WORD* GetSmallIconId() const override { static constexpr WORD iconId_small = IDI_CZ; return &iconId_small; }
 #endif
 
 		// Run
