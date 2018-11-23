@@ -18,12 +18,11 @@ return
 	
 	effects =
 	{
-		{ path = "Effects/red.effect" },
-		{ path = "Effects/white.effect" },
+		{ path = "Effects/animated.effect" },
 	},
 
 	prefabs =
 	{
-		{ path = "Prefabs/object.prefab" },
+		{ path = "Prefabs/red_pyramid.prefab" },
 	},
 }

@@ -24,6 +24,6 @@ return
 
 	prefabs =
 	{
-		{ path = "Prefabs/object.prefab" },
+		{ path = "Prefabs/red_pyramid.prefab" },
 	},
 }

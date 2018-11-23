@@ -9,6 +9,7 @@
 //=========
 
 #include <Engine/Application/cbApplication.h>
+#include <Engine/EntityComponentSystem/ECS.h>
 #include <Engine/Results/Results.h>
 
 #if defined( EAE6320_PLATFORM_WINDOWS )
@@ -65,12 +66,15 @@ namespace eae6320
 		// If you want to try creating your own a convenient website that will help is: http://icoconvert.com/
 		virtual const WORD* GetLargeIconId() const override { static constexpr WORD iconId_large = IDI_CZ; return &iconId_large; }
 		virtual const WORD* GetSmallIconId() const override { static constexpr WORD iconId_small = IDI_CZ; return &iconId_small; }
+
+		virtual void SubmitDataToBeRendered(const float i_elapsedSecondCount_systemTime, const float i_elapsedSecondCount_sinceLastSimulationUpdate) override;
 #endif
 
 		// Run
 		//----
 
 		virtual void UpdateBasedOnInput() override;
+		virtual void UpdateSimulationBasedOnTime(const float i_elapsedSecondCount_sinceLastUpdate) override;
 
 		// Initialization / Clean Up
 		//--------------------------
@@ -78,6 +82,8 @@ namespace eae6320
 		virtual cResult Initialize() override;
 		virtual cResult CleanUp() override;
 
+	private:
+		ECS::ECSEngine* ECS;
 	};
 }
 

@@ -4,10 +4,16 @@
 #include "cECSBoids.h"
 
 #include <Engine/Asserts/Asserts.h>
+#include <Engine/Graphics/Graphics.h>
 #include <Engine/UserInput/UserInput.h>
 
 // Inherited Implementation
 //=========================
+
+void eae6320::cECSBoids::SubmitDataToBeRendered(const float i_elapsedSecondCount_systemTime, const float i_elapsedSecondCount_sinceLastSimulationUpdate)
+{
+	Graphics::SubmitBackgroundColor(0.13f, 0.24f, 0.33f, 1.0f);
+}
 
 // Run
 //----
@@ -23,15 +29,22 @@ void eae6320::cECSBoids::UpdateBasedOnInput()
 	}
 }
 
+void eae6320::cECSBoids::UpdateSimulationBasedOnTime(const float i_elapsedSecondCount_sinceLastUpdate)
+{
+	ECS->Update(i_elapsedSecondCount_sinceLastUpdate);
+}
+
 // Initialization / Clean Up
 //--------------------------
 
 eae6320::cResult eae6320::cECSBoids::Initialize()
 {
+	ECS = new ECS::ECSEngine();
 	return Results::Success;
 }
 
 eae6320::cResult eae6320::cECSBoids::CleanUp()
 {
+	delete ECS;
 	return Results::Success;
 }
