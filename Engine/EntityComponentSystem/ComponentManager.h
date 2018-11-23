@@ -45,11 +45,6 @@ namespace eae6320
 				((T*)component)->m_componentId = componentId;
 
 				m_entityComponentMap[i_entityId][componentTypeId] = componentId;
-
-				if (m_componentMap[componentTypeId].size() == 0)
-				{
-					m_componentMap[componentTypeId].resize(1024);
-				}
 				m_componentMap[componentTypeId][componentId] = static_cast<T*>(component);
 				return static_cast<T*>(component);
 			}
@@ -78,21 +73,21 @@ namespace eae6320
 			}
 
 			template<class T>
-			inline typename std::vector<IComponent*>::iterator begin() 
+			inline std::unordered_map<size_t, IComponent*>::iterator begin() 
 			{
 				const size_t componentTypeId = T::s_componentTypeId;
 				return m_componentMap[componentTypeId].begin();
 			}
 
 			template<class T>
-			inline typename std::vector<IComponent*>::iterator end() 
+			inline std::unordered_map<size_t, IComponent*>::iterator end() 
 			{
 				const size_t componentTypeId = T::s_componentTypeId;
 				return m_componentMap[componentTypeId].end();
 			}
 		private:
 			std::vector<std::vector<size_t>> m_entityComponentMap;
-			std::unordered_map<size_t, std::vector<IComponent*>> m_componentMap;
+			std::unordered_map<size_t, std::unordered_map<size_t, IComponent*>> m_componentMap;
 			size_t m_componentCount;
 		};
 	}

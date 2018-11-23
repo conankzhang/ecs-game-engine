@@ -37,8 +37,8 @@ namespace eae6320
 			{
 				for (auto component : components.second)
 				{
-					delete component;
-					component = nullptr;
+					delete component.second;
+					component.second = nullptr;
 				}
 			}
 		}

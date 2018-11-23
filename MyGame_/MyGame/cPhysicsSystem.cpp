@@ -27,7 +27,7 @@ void eae6320::cPhysicsSystem::PreUpdate(float deltaTime)
 {
 	for (auto component = m_componentManager->begin<cRigidbodyComponent>(); component != m_componentManager->end<cRigidbodyComponent>(); ++component)
 	{
-		cRigidbodyComponent* rigidBodyComponent = dynamic_cast<cRigidbodyComponent*>(*component);
+		cRigidbodyComponent* rigidBodyComponent = dynamic_cast<cRigidbodyComponent*>(component->second);
 
 		if (rigidBodyComponent && rigidBodyComponent->IsActive())
 		{
