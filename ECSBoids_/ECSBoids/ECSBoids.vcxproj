@@ -28,11 +28,13 @@
     <ResourceCompile Include="Resource Files\ECSBoids.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cBoid.h" />
     <ClInclude Include="cECSBoids.h" />
     <ClInclude Include="Resource Files\Resource.h" />
     <ClInclude Include="Resource Files\targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cBoid.cpp" />
     <ClCompile Include="cECSBoids.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
   </ItemGroup>

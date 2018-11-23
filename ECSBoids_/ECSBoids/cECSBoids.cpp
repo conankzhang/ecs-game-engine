@@ -2,6 +2,7 @@
 //=========
 
 #include "cECSBoids.h"
+#include "cBoid.h"
 
 #include <Engine/Asserts/Asserts.h>
 #include <Engine/Graphics/Graphics.h>
@@ -40,6 +41,8 @@ void eae6320::cECSBoids::UpdateSimulationBasedOnTime(const float i_elapsedSecond
 eae6320::cResult eae6320::cECSBoids::Initialize()
 {
 	ECS = new ECS::ECSEngine();
+
+	ECS->GetEntityManager()->CreateEntity<cBoid>();
 	return Results::Success;
 }
 

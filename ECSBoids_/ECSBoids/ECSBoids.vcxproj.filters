@@ -32,9 +32,11 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="cECSBoids.h" />
+    <ClInclude Include="cBoid.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
+    <ClCompile Include="cBoid.cpp" />
   </ItemGroup>
 </Project>
