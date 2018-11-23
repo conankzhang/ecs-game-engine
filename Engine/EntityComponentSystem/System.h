@@ -10,6 +10,7 @@
 
 #include "ISystem.h"
 #include "ComponentManager.h"
+#include "TypeManager.h"
 
 // Forward Declarations
 //=====================
@@ -49,10 +50,8 @@ namespace eae6320
 			static const size_t s_systemTypeId;
 		};
 
-		static size_t s_systemTypeIdCount = 0;
-
 		template<class T>
-		const size_t System<T>::s_systemTypeId = s_systemTypeIdCount++;
+		const size_t System<T>::s_systemTypeId = TypeManager<ISystem>::GetTypeId<T>();
 	}
 }
 

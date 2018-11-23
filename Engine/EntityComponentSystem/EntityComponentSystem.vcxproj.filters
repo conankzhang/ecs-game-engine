@@ -13,6 +13,7 @@
     <ClInclude Include="IEventDispatcher.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="ECS.h" />
+    <ClInclude Include="TypeManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IEntity.win.cpp" />
@@ -22,5 +23,6 @@
     <ClCompile Include="ComponentManager.win.cpp" />
     <ClCompile Include="SystemManager.win.cpp" />
     <ClCompile Include="Engine.win.cpp" />
+    <ClCompile Include="TypeManager.cpp" />
   </ItemGroup>
 </Project>

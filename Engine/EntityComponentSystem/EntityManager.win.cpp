@@ -36,8 +36,10 @@ namespace eae6320
 
 		void EntityManager::RemoveEntities()
 		{
-			// TODO
-			m_numEntitiesToRemove = 0;
+			for (auto entity : m_entitiesToRemove)
+			{
+				m_entityMap.erase(entity);
+			}
 		}
 	}
 }

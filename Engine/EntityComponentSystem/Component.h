@@ -9,6 +9,7 @@
 //=========
 
 #include "IComponent.h"
+#include "TypeManager.h"
 
 // Forward Declarations
 //=====================
@@ -29,11 +30,8 @@ namespace eae6320
 			static const size_t s_componentTypeId;
 		};
 
-		static size_t s_typeIdCount = 0;
-
 		template<class T>
-		const size_t Component<T>::s_componentTypeId = s_typeIdCount++;
-
+		const size_t Component<T>::s_componentTypeId = TypeManager<IComponent>::GetTypeId<T>();
 	}
 }
 

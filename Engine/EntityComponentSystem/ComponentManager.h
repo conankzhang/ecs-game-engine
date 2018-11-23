@@ -25,7 +25,6 @@ namespace eae6320
 		class ComponentManager 
 		{
 			friend class IComponent;
-
 		public:
 			ComponentManager();
 			~ComponentManager();
@@ -46,8 +45,7 @@ namespace eae6320
 				((T*)component)->m_componentId = componentId;
 
 				m_entityComponentMap[i_entityId][componentTypeId] = componentId;
-
-				m_componentMap[componentId] = static_cast<IComponent*>(component);
+				m_componentMap[componentTypeId][componentId] = static_cast<T*>(component);
 				return static_cast<T*>(component);
 			}
 
@@ -58,9 +56,7 @@ namespace eae6320
 
 				const size_t componentId = m_entityComponentMap[i_entityId][componentTypeId];
 
-				IComponent* component = m_componentMap[componentId];
-
-				delete component;
+				m_componentMap[componentTypeId].erase(componentId);
 
 				m_entityComponentMap[i_entityId][componentTypeId] = 0;
 
@@ -73,23 +69,26 @@ namespace eae6320
 
 				const size_t componentId = m_entityComponentMap[i_entityId][componentTypeId];
 
-				return static_cast<T*>(this->m_componentMap[componentId]);
+				return static_cast<T*>(this->m_componentMap[componentTypeId][componentId]);
 			}
 
+			template<class T>
 			inline std::unordered_map<size_t, IComponent*>::iterator begin() 
 			{
-				return m_componentMap.begin();
+				const size_t componentTypeId = T::s_componentTypeId;
+				return m_componentMap[componentTypeId].begin();
 			}
 
+			template<class T>
 			inline std::unordered_map<size_t, IComponent*>::iterator end() 
 			{
-				return m_componentMap.end();
+				const size_t componentTypeId = T::s_componentTypeId;
+				return m_componentMap[componentTypeId].end();
 			}
 		private:
 			std::vector<std::vector<size_t>> m_entityComponentMap;
-			std::unordered_map<size_t, IComponent*> m_componentMap;
+			std::unordered_map<size_t, std::unordered_map<size_t, IComponent*>> m_componentMap;
 			size_t m_componentCount;
-			
 		};
 	}
 }

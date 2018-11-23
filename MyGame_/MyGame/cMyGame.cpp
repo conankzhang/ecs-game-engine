@@ -33,7 +33,7 @@ void eae6320::cMyGame::SubmitDataToBeRendered(const float i_elapsedSecondCount_s
 
 	eae6320::ECS::IEntity* entity = ECS->GetEntityManager()->GetEntity(demoEntityId);
 	eae6320::cPrefab* prefab = static_cast<eae6320::cPrefab*>(entity);
-	if (prefab && prefab->IsActive())
+	if (prefab && prefab->IsActive() && prefab->GetComponent<cRigidbodyComponent>())
 	{
 		eae6320::Graphics::SubmitGameObject(entity->GetComponent<cMeshComponent>()->GetMesh(), entity->GetComponent<cEffectComponent>()->GetEffect() , entity->GetComponent<cRigidbodyComponent>()->GetTransform(i_elapsedSecondCount_sinceLastSimulationUpdate));
 	}
@@ -102,7 +102,6 @@ void eae6320::cMyGame::UpdateSimulationBasedOnInput()
 	}
 
 	m_object1->SetVelocity(eae6320::Math::sVector(x_object, y_object, 0.0f));
-
 
 	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Shift))
 	{
