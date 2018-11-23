@@ -6,11 +6,11 @@
 #include <Engine/Graphics/cMesh.h>
 #include <Engine/Graphics/cEffect.h>
 #include <Engine/Math/cMatrix_transformation.h>
+#include <Engine/Platform/Platform.h>
 
-eae6320::cRenderComponent::cRenderComponent(const char* const i_meshPath, const char* const i_effectPath, Math::sVector i_position, Math::cQuaternion i_orientation)
+eae6320::cRenderComponent::cRenderComponent(const char* const i_prefabPath, Math::sVector i_position, Math::cQuaternion i_orientation)
 {
-	Graphics::cMesh::Load( i_meshPath, m_mesh );
-	Graphics::cEffect::Load(m_effect, i_effectPath);
+	LoadPrefab(i_prefabPath);
 
 	m_rigidBody.position = i_position;
 	m_rigidBody.orientation = i_orientation;
@@ -22,6 +22,31 @@ eae6320::cRenderComponent::cRenderComponent(const char* const i_meshPath, const 
 eae6320::cRenderComponent::~cRenderComponent()
 {
 	CleanUp();
+}
+
+void eae6320::cRenderComponent::LoadPrefab(const char* const i_prefabPath)
+{
+	Platform::sDataFromFile dataFromFile;
+	Platform::LoadBinaryFile(i_prefabPath, dataFromFile);
+
+	auto currentOffset = reinterpret_cast<uintptr_t>( dataFromFile.data );
+	const auto finalOffset = currentOffset + dataFromFile.size;
+
+    bool isActive = *reinterpret_cast<uint8_t*>( currentOffset );
+
+	currentOffset += sizeof( isActive );
+    const auto meshPathSize = *reinterpret_cast<uint16_t*>( currentOffset );
+
+	currentOffset += sizeof( meshPathSize );
+	char* meshPath = reinterpret_cast<char*>( currentOffset );
+
+	currentOffset += meshPathSize * sizeof( char );
+	char* effectPath = reinterpret_cast<char*>( currentOffset );
+
+	Graphics::cMesh::Load( meshPath, m_mesh );
+	Graphics::cEffect::Load(m_effect, effectPath );
+
+	SetActive(isActive);
 }
 
 void eae6320::cRenderComponent::CleanUp()

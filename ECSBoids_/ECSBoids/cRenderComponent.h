@@ -29,8 +29,10 @@ namespace eae6320
 	class cRenderComponent : public ECS::Component<cRenderComponent>
 	{
 	public:
-		cRenderComponent(const char* const i_meshPath, const char* const i_effectPath, Math::sVector i_position, Math::cQuaternion i_orientation);
+		cRenderComponent(const char* const i_prefabPath, Math::sVector i_position, Math::cQuaternion i_orientation);
 		~cRenderComponent();
+
+		void LoadPrefab(const char* const i_prefabPath);
 
 		void CleanUp();
 
