@@ -24,7 +24,6 @@ namespace eae6320
 		~cRenderSystem();
 
 		virtual void Update(float deltaTime) override;
-		virtual void PostUpdate(float deltaTime) override;
 	};
 }
 
