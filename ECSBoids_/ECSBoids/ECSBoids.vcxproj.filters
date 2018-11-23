@@ -35,6 +35,8 @@
     <ClInclude Include="cBoid.h" />
     <ClInclude Include="cRenderComponent.h" />
     <ClInclude Include="cRenderSystem.h" />
+    <ClInclude Include="cCamera.h" />
+    <ClInclude Include="cCameraComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
@@ -42,5 +44,7 @@
     <ClCompile Include="cBoid.cpp" />
     <ClCompile Include="cRenderComponent.cpp" />
     <ClCompile Include="cRenderSystem.cpp" />
+    <ClCompile Include="cCamera.cpp" />
+    <ClCompile Include="cCameraComponent.cpp" />
   </ItemGroup>
 </Project>

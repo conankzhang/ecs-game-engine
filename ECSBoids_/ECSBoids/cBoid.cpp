@@ -16,5 +16,5 @@ eae6320::cBoid::cBoid()
 
 void eae6320::cBoid::Initialize()
 {
-	AddComponent<cRenderComponent>("data/meshes/pyramid.mesh", "data/effects/green.effect", Math::sVector(0.0f, 0.0f, 0.0f), Math::cQuaternion());
+	AddComponent<cRenderComponent>("data/meshes/pyramid.mesh", "data/effects/green.effect", Math::sVector(), Math::cQuaternion());
 }

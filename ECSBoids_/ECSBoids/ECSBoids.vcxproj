@@ -29,6 +29,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cBoid.h" />
+    <ClInclude Include="cCamera.h" />
+    <ClInclude Include="cCameraComponent.h" />
     <ClInclude Include="cECSBoids.h" />
     <ClInclude Include="cRenderComponent.h" />
     <ClInclude Include="cRenderSystem.h" />
@@ -37,6 +39,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBoid.cpp" />
+    <ClCompile Include="cCamera.cpp" />
+    <ClCompile Include="cCameraComponent.cpp" />
     <ClCompile Include="cECSBoids.cpp" />
     <ClCompile Include="cRenderComponent.cpp" />
     <ClCompile Include="cRenderSystem.cpp" />

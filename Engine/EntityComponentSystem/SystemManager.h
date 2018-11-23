@@ -62,7 +62,9 @@ namespace eae6320
 
 				// add to work list
 				this->m_systemOrder.push_back((T*)system);
-				
+
+				((T*)system)->Initialize();
+
 				return (T*)system;
 			}
 

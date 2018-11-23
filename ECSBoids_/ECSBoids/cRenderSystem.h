@@ -11,6 +11,10 @@
 
 // Forward Declarations
 //=====================
+namespace eae6320
+{
+	class cCameraComponent;
+}
 
 // Class Declaration
 //==================
@@ -24,8 +28,12 @@ namespace eae6320
 		~cRenderSystem();
 
 		virtual void Update(float deltaTime) override;
+		virtual void Initialize() override;
 
 		void SubmitDataToBeRendered(const float i_deltaSystemTime, const float i_deltaTime);
+
+	private:
+		cCameraComponent* m_cameraComponent;
 	};
 }
 

@@ -35,6 +35,8 @@ namespace eae6320
 			virtual void Update(float deltaTime) = 0;
 			virtual void PostUpdate(float deltaTime) = 0;
 
+			virtual void Initialize() {};
+
 			virtual inline const size_t GetSystemTypeId() const = 0;
 			ComponentManager* m_componentManager;
 
