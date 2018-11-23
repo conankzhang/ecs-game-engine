@@ -33,7 +33,7 @@ namespace eae6320
 
 	private:
 		const float m_verticalFieldOfView_inRadians = 45.0f;
-		const float m_aspectRatio = 1.0f;
+		const float m_aspectRatio = 1.777f;
 		const float m_z_nearPlane = 0.1f;
 		const float m_z_farPlane = 100.0f;
 	};
