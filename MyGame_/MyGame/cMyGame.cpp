@@ -133,7 +133,7 @@ eae6320::cResult eae6320::cMyGame::Initialize()
 	ECS = new eae6320::ECS::ECSEngine();
 
 	eae6320::ECS::EntityManager* entityManager = ECS->GetEntityManager();
-	demoEntityId = entityManager->CreateEntity<eae6320::cPrefab>("data/Prefabs/object.prefab", eae6320::Math::sVector(-1.0f, 0.0f, 0.0f), eae6320::Math::cQuaternion());
+	demoEntityId = entityManager->CreateEntity<eae6320::cPrefab>("data/Prefabs/red_pyramid.prefab", eae6320::Math::sVector(-1.0f, 0.0f, 0.0f), eae6320::Math::cQuaternion());
 
 	ECS->GetSystemManager()->AddSystem<cPhysicsSystem>();
 

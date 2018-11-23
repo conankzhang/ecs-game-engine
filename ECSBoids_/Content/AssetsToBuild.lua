@@ -6,9 +6,24 @@ return
 {
 	shaders =
 	{
-		{ path = "Shaders/Vertex/standard.shader", arguments = { "vertex" } },
-		{ path = "Shaders/Fragment/standard.shader", arguments = { "fragment" } },
-
 		{ path = "Shaders/Vertex/vertexInputLayout.shader", arguments = { "vertex" } },
+	},
+
+	meshes =
+	{
+		{ path = "Meshes/cube.mesh" },
+		{ path = "Meshes/plane.mesh" },
+		{ path = "Meshes/pyramid.mesh" },
+	},
+	
+	effects =
+	{
+		{ path = "Effects/red.effect" },
+		{ path = "Effects/white.effect" },
+	},
+
+	prefabs =
+	{
+		{ path = "Prefabs/object.prefab" },
 	},
 }
