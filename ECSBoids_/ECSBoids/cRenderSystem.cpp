@@ -21,6 +21,12 @@ eae6320::cRenderSystem::~cRenderSystem()
 
 }
 
+void eae6320::cRenderSystem::Initialize()
+{
+	auto cameraIterator = m_componentManager->begin<cCameraComponent>();
+	m_cameraComponent = dynamic_cast<cCameraComponent*>(cameraIterator->second);
+}
+
 // Implementation
 //===============
 
@@ -37,12 +43,6 @@ void eae6320::cRenderSystem::Update(float deltaTime)
 			renderComponent->Update(deltaTime);
 		}
 	}
-}
-
-void eae6320::cRenderSystem::Initialize()
-{
-	auto cameraIterator = m_componentManager->begin<cCameraComponent>();
-	m_cameraComponent = dynamic_cast<cCameraComponent*>(cameraIterator->second);
 }
 
 void eae6320::cRenderSystem::SubmitDataToBeRendered(const float i_deltaSystemTime, const float i_deltaTime)
