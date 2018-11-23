@@ -33,10 +33,14 @@
     </ClInclude>
     <ClInclude Include="cECSBoids.h" />
     <ClInclude Include="cBoid.h" />
+    <ClInclude Include="cRenderComponent.h" />
+    <ClInclude Include="cRenderSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
     <ClCompile Include="cBoid.cpp" />
+    <ClCompile Include="cRenderComponent.cpp" />
+    <ClCompile Include="cRenderSystem.cpp" />
   </ItemGroup>
 </Project>

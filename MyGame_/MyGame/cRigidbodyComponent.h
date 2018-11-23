@@ -2,7 +2,7 @@
 	Rigidbody Component interface.
 */
 
-#ifndef CRIGIDBODYMPONENT_H
+#ifndef CRIGIDBODYCOMPONENT_H
 #define CRIGIDBODYCOMPONENT_H
 
 // Includes
