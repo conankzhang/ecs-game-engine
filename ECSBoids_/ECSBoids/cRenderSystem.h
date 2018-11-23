@@ -24,6 +24,8 @@ namespace eae6320
 		~cRenderSystem();
 
 		virtual void Update(float deltaTime) override;
+
+		void SubmitDataToBeRendered(const float i_deltaSystemTime, const float i_deltaTime);
 	};
 }
 

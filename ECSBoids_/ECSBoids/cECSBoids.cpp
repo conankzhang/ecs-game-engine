@@ -8,8 +8,6 @@
 #include "cRenderComponent.h"
 
 #include <Engine/Asserts/Asserts.h>
-#include <Engine/Graphics/Graphics.h>
-#include <Engine/Math/cMatrix_transformation.h>
 #include <Engine/UserInput/UserInput.h>
 
 // Inherited Implementation
@@ -17,17 +15,7 @@
 
 void eae6320::cECSBoids::SubmitDataToBeRendered(const float i_elapsedSecondCount_systemTime, const float i_elapsedSecondCount_sinceLastSimulationUpdate)
 {
-	Graphics::SubmitBackgroundColor(0.13f, 0.24f, 0.33f, 1.0f);
-
-	for (auto component = ECS->GetComponentManager()->begin<cRenderComponent>(); component != ECS->GetComponentManager()->end<cRenderComponent>(); ++component)
-	{
-		cRenderComponent* renderComponent = dynamic_cast<cRenderComponent*>(component->second);
-
-		if (renderComponent && renderComponent->IsActive())
-		{
-			Graphics::SubmitGameObject(renderComponent->GetMesh(), renderComponent->GetEffect() , renderComponent->GetTransform(i_elapsedSecondCount_sinceLastSimulationUpdate));
-		}
-	}
+	ECS->GetSystemManager()->GetSystem<cRenderSystem>()->SubmitDataToBeRendered(i_elapsedSecondCount_systemTime, i_elapsedSecondCount_sinceLastSimulationUpdate);
 }
 
 // Run
