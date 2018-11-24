@@ -27,7 +27,7 @@ void eae6320::cECSBoids::SubmitDataToBeRendered(const float i_elapsedSecondCount
 void eae6320::cECSBoids::UpdateBasedOnInput()
 {
 	// Is the user pressing the ESC key?
-	if ( UserInput::IsKeyPressed( UserInput::KeyCodes::Escape ) )
+	if ( UserInput::IsKeyPressed( UserInput::KeyCodes::Escape ) || UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::START))
 	{
 		// Exit the application
 		const auto result = Exit( EXIT_SUCCESS );
