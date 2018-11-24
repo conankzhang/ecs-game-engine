@@ -21,9 +21,4 @@ return
 		{ path = "Effects/red.effect" },
 		{ path = "Effects/white.effect" },
 	},
-
-	prefabs =
-	{
-		{ path = "Prefabs/red_pyramid.prefab" },
-	},
 }

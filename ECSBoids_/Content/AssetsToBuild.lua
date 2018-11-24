@@ -9,20 +9,6 @@ return
 		{ path = "Shaders/Vertex/vertexInputLayout.shader", arguments = { "vertex" } },
 	},
 
-	meshes =
-	{
-		{ path = "Meshes/boid.mesh" },
-		{ path = "Meshes/goal.mesh" },
-		{ path = "Meshes/floor.mesh" },
-	},
-	
-	effects =
-	{
-		{ path = "Effects/green.effect" },
-		{ path = "Effects/yellow.effect" },
-		{ path = "Effects/white.effect" },
-	},
-
 	prefabs =
 	{
 		{ path = "Prefabs/boid.prefab" },

@@ -315,17 +315,25 @@ NewAssetTypeInfo( "effects",
 --------------------
 
 NewAssetTypeInfo( "prefabs",
-	{
-		ConvertSourceRelativePathToBuiltRelativePath = function( i_sourceRelativePath )
-			-- Change the source file extension to the binary version
-			local relativeDirectory, file = i_sourceRelativePath:match( "(.-)([^/\\]+)$" )
-			local fileName, extensionWithPeriod = file:match( "([^%.]+)(.*)" )
-			return relativeDirectory .. fileName .. extensionWithPeriod
-		end,
-		GetBuilderRelativePath = function()
-			return "PrefabBuilder.exe"
-		end,
-	}
+  {
+    RegisterReferencedAssets = function( i_sourceRelativePath )
+      local sourceAbsolutePath = FindSourceContentAbsolutePathFromRelativePath( i_sourceRelativePath )
+      if DoesFileExist( sourceAbsolutePath ) then
+        local prefab = dofile( sourceAbsolutePath )
+        RegisterAssetToBeBuilt( prefab.components[1].path, "meshes" )
+        RegisterAssetToBeBuilt( prefab.components[2].path, "effects" )
+      end
+    end,
+	ConvertSourceRelativePathToBuiltRelativePath = function( i_sourceRelativePath )
+		-- Change the source file extension to the binary version
+		local relativeDirectory, file = i_sourceRelativePath:match( "(.-)([^/\\]+)$" )
+		local fileName, extensionWithPeriod = file:match( "([^%.]+)(.*)" )
+		return relativeDirectory .. fileName .. extensionWithPeriod
+	end,
+	GetBuilderRelativePath = function()
+		return "PrefabBuilder.exe"
+	end,
+  }
 )
 
 -- Local Function Definitions
