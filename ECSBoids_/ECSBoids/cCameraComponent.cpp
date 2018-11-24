@@ -25,6 +25,11 @@ void eae6320::cCameraComponent::SetVelocity(Math::sVector i_velocity)
 	m_rigidBody.velocity = i_velocity;
 }
 
+eae6320::Math::sVector eae6320::cCameraComponent::GetForward()
+{
+	return m_rigidBody.orientation.CalculateForwardDirection();
+}
+
 eae6320::Math::cMatrix_transformation eae6320::cCameraComponent::GetWorldToCameraTransform(const float i_deltaTime)
 {
 	return Math::cMatrix_transformation::CreateWorldToCameraTransform(Math::cMatrix_transformation(m_rigidBody.PredictFutureOrientation(i_deltaTime), m_rigidBody.PredictFuturePosition(i_deltaTime)));
@@ -38,9 +43,25 @@ eae6320::Math::cMatrix_transformation eae6320::cCameraComponent::GetCameraToProj
 
 void eae6320::cCameraComponent::UpdateInput()
 {
-	Math::sVector leftStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_STICK, 0);
-	SetVelocity(Math::sVector(leftStickDeflection.x * m_movementSpeed, 0.0f, -leftStickDeflection.y * m_movementSpeed));
+	ProcessLeftStick();
+	ProcessRightStick();
+}
 
+void eae6320::cCameraComponent::ProcessLeftStick()
+{
+	Math::sVector leftStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_STICK, 0);
+	leftStickDeflection *= m_movementSpeed;
+
+	Math::sVector right = Math::Cross(GetForward(), Math::sVector(0.0f, 1.0f, 0.0f));
+	right *= leftStickDeflection.x;
+
+	Math::sVector forward = GetForward() * leftStickDeflection.y;
+
+	SetVelocity(right + forward);
+}
+
+void eae6320::cCameraComponent::ProcessRightStick()
+{
 	Math::sVector rightStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_STICK, 0);
-	m_rigidBody.angularSpeed = -rightStickDeflection.x;
+	m_rigidBody.angularSpeed = -rightStickDeflection.x * m_rotationSpeed;
 }

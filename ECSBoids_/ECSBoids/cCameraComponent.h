@@ -24,11 +24,16 @@ namespace eae6320
 
 		void Update(const float i_deltaTime);
 		void SetVelocity(Math::sVector i_velocity);
+		Math::sVector GetForward();
 
 		Math::cMatrix_transformation GetWorldToCameraTransform(const float i_deltaTime);
 		Math::cMatrix_transformation GetCameraToProjectedTransform();
 
 		void UpdateInput();
+
+	protected:
+		void ProcessLeftStick();
+		void ProcessRightStick();
 
 	protected:
 		Physics::sRigidBodyState m_rigidBody;
@@ -40,6 +45,7 @@ namespace eae6320
 		const float m_z_farPlane = 100.0f;
 
 		const float m_movementSpeed = 5.0f;
+		const float m_rotationSpeed = 2.0f;
 	};
 }
 
