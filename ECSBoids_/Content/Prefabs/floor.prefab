@@ -9,7 +9,7 @@ return
 		},
 		{
 			class = "Effect",
-			path = "effects/green.effect",
+			path = "effects/white.effect",
 		},
 	},
 }

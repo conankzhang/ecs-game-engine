@@ -5,11 +5,11 @@ return
 	{
 		{
 			class = "Mesh",
-			path = "meshes/pyramid.mesh",
+			path = "meshes/floor.mesh",
 		},
 		{
 			class = "Effect",
-			path = "effects/green.effect",
+			path = "effects/red.effect",
 		},
 	},
 }

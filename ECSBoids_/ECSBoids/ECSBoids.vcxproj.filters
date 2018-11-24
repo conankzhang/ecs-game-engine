@@ -59,6 +59,9 @@
     <ClInclude Include="cInputSystem.h">
       <Filter>Systems</Filter>
     </ClInclude>
+    <ClInclude Include="cGoal.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
@@ -80,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="cInputSystem.cpp">
       <Filter>Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="cGoal.cpp">
+      <Filter>Entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

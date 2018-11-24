@@ -4,6 +4,7 @@
 #include "cECSBoids.h"
 
 #include "cBoid.h"
+#include "cGoal.h"
 #include "cCamera.h"
 #include "cRenderComponent.h"
 #include "cRenderSystem.h"
@@ -59,6 +60,7 @@ eae6320::cResult eae6320::cECSBoids::Initialize()
 	ECS = new ECS::ECSEngine();
 
 	ECS->GetEntityManager()->CreateEntity<cBoid>();
+	ECS->GetEntityManager()->CreateEntity<cGoal>();
 	ECS->GetEntityManager()->CreateEntity<cCamera>();
 
 	cRenderSystem* renderSystem = ECS->GetSystemManager()->AddSystem<cRenderSystem>();

@@ -11,18 +11,22 @@ return
 
 	meshes =
 	{
-		{ path = "Meshes/cube.mesh" },
-		{ path = "Meshes/plane.mesh" },
-		{ path = "Meshes/pyramid.mesh" },
+		{ path = "Meshes/boid.mesh" },
+		{ path = "Meshes/goal.mesh" },
+		{ path = "Meshes/floor.mesh" },
 	},
 	
 	effects =
 	{
 		{ path = "Effects/green.effect" },
+		{ path = "Effects/yellow.effect" },
+		{ path = "Effects/white.effect" },
 	},
 
 	prefabs =
 	{
 		{ path = "Prefabs/boid.prefab" },
+		{ path = "Prefabs/goal.prefab" },
+		{ path = "Prefabs/floor.prefab" },
 	},
 }

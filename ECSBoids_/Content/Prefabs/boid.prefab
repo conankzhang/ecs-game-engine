@@ -5,7 +5,7 @@ return
 	{
 		{
 			class = "Mesh",
-			path = "meshes/pyramid.mesh",
+			path = "meshes/boid.mesh",
 		},
 		{
 			class = "Effect",
