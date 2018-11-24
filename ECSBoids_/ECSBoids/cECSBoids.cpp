@@ -5,8 +5,9 @@
 
 #include "cBoid.h"
 #include "cCamera.h"
-#include "cRenderSystem.h"
 #include "cRenderComponent.h"
+#include "cRenderSystem.h"
+#include "cInputSystem.h"
 
 #include <Engine/Asserts/Asserts.h>
 #include <Engine/UserInput/UserInput.h>
@@ -32,6 +33,8 @@ void eae6320::cECSBoids::UpdateBasedOnInput()
 		const auto result = Exit( EXIT_SUCCESS );
 		EAE6320_ASSERT( result );
 	}
+
+	ECS->GetSystemManager()->GetSystem<cInputSystem>()->UpdateInput();
 }
 
 void eae6320::cECSBoids::UpdateSimulationBasedOnTime(const float i_elapsedSecondCount_sinceLastUpdate)
@@ -58,7 +61,11 @@ eae6320::cResult eae6320::cECSBoids::Initialize()
 	ECS->GetEntityManager()->CreateEntity<cBoid>();
 	ECS->GetEntityManager()->CreateEntity<cCamera>();
 
-	ECS->GetSystemManager()->AddSystem<cRenderSystem>();
+	cRenderSystem* renderSystem = ECS->GetSystemManager()->AddSystem<cRenderSystem>();
+	cInputSystem* inputSystem = ECS->GetSystemManager()->AddSystem<cInputSystem>();
+
+	ECS->GetSystemManager()->AddSystemDependency<cRenderSystem*, cInputSystem*>(renderSystem, inputSystem);
+
 
 OnExit:
 	return result;

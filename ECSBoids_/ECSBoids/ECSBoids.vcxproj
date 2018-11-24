@@ -32,6 +32,7 @@
     <ClInclude Include="cCamera.h" />
     <ClInclude Include="cCameraComponent.h" />
     <ClInclude Include="cECSBoids.h" />
+    <ClInclude Include="cInputSystem.h" />
     <ClInclude Include="cRenderComponent.h" />
     <ClInclude Include="cRenderSystem.h" />
     <ClInclude Include="Resource Files\Resource.h" />
@@ -42,6 +43,7 @@
     <ClCompile Include="cCamera.cpp" />
     <ClCompile Include="cCameraComponent.cpp" />
     <ClCompile Include="cECSBoids.cpp" />
+    <ClCompile Include="cInputSystem.cpp" />
     <ClCompile Include="cRenderComponent.cpp" />
     <ClCompile Include="cRenderSystem.cpp" />
     <ClCompile Include="EntryPoint.cpp" />

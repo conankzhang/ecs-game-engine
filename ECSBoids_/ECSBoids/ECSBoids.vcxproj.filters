@@ -56,6 +56,9 @@
     <ClInclude Include="cRenderSystem.h">
       <Filter>Systems</Filter>
     </ClInclude>
+    <ClInclude Include="cInputSystem.h">
+      <Filter>Systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
@@ -73,6 +76,9 @@
       <Filter>Entities</Filter>
     </ClCompile>
     <ClCompile Include="cRenderSystem.cpp">
+      <Filter>Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="cInputSystem.cpp">
       <Filter>Systems</Filter>
     </ClCompile>
   </ItemGroup>
