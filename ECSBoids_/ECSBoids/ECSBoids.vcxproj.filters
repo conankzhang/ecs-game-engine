@@ -4,6 +4,15 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{796ba2c8-e6e1-43a9-bb3f-582c29bb4ca5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{46fbf1d1-cc78-401f-884a-a3a418ff1702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{98a0eafa-a348-4ac9-9978-6240fa0879e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Systems">
+      <UniqueIdentifier>{48f911da-02e4-4fe5-8f0d-ec6db6b018e3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Resource Files\eaeAlien.ico">
@@ -32,19 +41,39 @@
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="cECSBoids.h" />
-    <ClInclude Include="cBoid.h" />
-    <ClInclude Include="cRenderComponent.h" />
-    <ClInclude Include="cRenderSystem.h" />
-    <ClInclude Include="cCamera.h" />
-    <ClInclude Include="cCameraComponent.h" />
+    <ClInclude Include="cCameraComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="cRenderComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="cCamera.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="cBoid.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="cRenderSystem.h">
+      <Filter>Systems</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
     <ClCompile Include="EntryPoint.cpp" />
-    <ClCompile Include="cBoid.cpp" />
-    <ClCompile Include="cRenderComponent.cpp" />
-    <ClCompile Include="cRenderSystem.cpp" />
-    <ClCompile Include="cCamera.cpp" />
-    <ClCompile Include="cCameraComponent.cpp" />
+    <ClCompile Include="cCameraComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="cRenderComponent.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="cBoid.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="cCamera.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="cRenderSystem.cpp">
+      <Filter>Systems</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
