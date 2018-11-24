@@ -11,6 +11,10 @@
 
 // Forward Declarations
 //=====================
+namespace eae6320
+{
+	class cCameraComponent;
+}
 
 // Class Declaration
 //==================
@@ -23,7 +27,11 @@ namespace eae6320
 		cInputSystem();
 		~cInputSystem();
 
+		virtual void Initialize() override;
 		void UpdateInput();
+
+	private:
+		cCameraComponent* m_cameraComponent;
 	};
 }
 

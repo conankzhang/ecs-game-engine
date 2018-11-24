@@ -28,6 +28,8 @@ namespace eae6320
 		Math::cMatrix_transformation GetWorldToCameraTransform(const float i_deltaTime);
 		Math::cMatrix_transformation GetCameraToProjectedTransform();
 
+		void UpdateInput();
+
 	protected:
 		Physics::sRigidBodyState m_rigidBody;
 
@@ -36,6 +38,8 @@ namespace eae6320
 		const float m_aspectRatio = 1.777f;
 		const float m_z_nearPlane = 0.1f;
 		const float m_z_farPlane = 100.0f;
+
+		const float m_movementSpeed = 5.0f;
 	};
 }
 
