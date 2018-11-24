@@ -32,6 +32,7 @@ namespace eae6320
 			ComponentManager(const ComponentManager&) = delete;
 			ComponentManager& operator=(ComponentManager&) = delete;
 
+			// Add a Component of type T with optional arguments to the Entity with EntityID 
 			template<class T, class ...ARGS>
 			T* AddComponent(const size_t i_entityId, ARGS&&... args)
 			{
@@ -49,6 +50,7 @@ namespace eae6320
 				return static_cast<T*>(component);
 			}
 
+			// Remove the Component of type T frome the Entity with EntityID 
 			template<class T>
 			void RemoveComponent(const size_t i_entityId)
 			{
@@ -62,6 +64,7 @@ namespace eae6320
 
 			}
 
+			// Get the Component of type T frome the Entity with EntityID 
 			template<class T>
 			T* GetComponent(const size_t i_entityId)
 			{
@@ -72,6 +75,7 @@ namespace eae6320
 				return static_cast<T*>(this->m_componentMap[componentTypeId][componentId]);
 			}
 
+			// Get the begin iterator for Components of type T
 			template<class T>
 			inline std::unordered_map<size_t, IComponent*>::iterator begin() 
 			{
@@ -79,6 +83,7 @@ namespace eae6320
 				return m_componentMap[componentTypeId].begin();
 			}
 
+			// Get the end iterator for Components of type T
 			template<class T>
 			inline std::unordered_map<size_t, IComponent*>::iterator end() 
 			{

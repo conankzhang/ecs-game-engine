@@ -28,7 +28,7 @@ namespace eae6320
 
 		}
 
-		void IEntity::SetActive(bool i_isActive)
+		void IEntity::SetIsActive(bool i_isActive)
 		{
 			if (this->m_isActive == i_isActive)
 			{

@@ -38,7 +38,7 @@ namespace eae6320
 			template<class... Dependencies>
 			void AddDependencies(Dependencies&&... dependencies)
 			{
-				m_systemManager->AddSystemDependency(this, std::forward<Dependencies>(dependencies)...);
+				m_systemManager->AddSystemDependencies(this, std::forward<Dependencies>(dependencies)...);
 			}
 
 			virtual void PreUpdate(float deltaTime) override {};

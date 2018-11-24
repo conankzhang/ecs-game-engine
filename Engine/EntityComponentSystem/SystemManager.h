@@ -33,7 +33,7 @@ namespace eae6320
 			SystemManager(ComponentManager* i_componentManager);
 			~SystemManager();
 
-			
+			// Add a System of type T with optional arguments
 			template<class T, class... ARGS>
 			T* AddSystem(ARGS&&... args)
 			{
@@ -68,6 +68,16 @@ namespace eae6320
 				return (T*)system;
 			}
 
+			// Get the System of type T
+			template<class T>
+			inline T* GetSystem() const
+			{
+				auto it = this->m_systems.find(T::s_systemTypeId);
+
+				return it != this->m_systems.end() ? (T*)it->second : nullptr;
+			}
+
+			// Add a Dependency to System to indicate the dependency should be updated before the system 
 			template<class System, class Dependency>
 			void AddSystemDependency(System system, Dependency dependency)
 			{
@@ -80,8 +90,9 @@ namespace eae6320
 				}
 			}
 
+			// Add a Dependencies to System to indicate the dependencies should be updated before the system 
 			template<class System, class Dependency, class... Dependencies>
-			void AddSystemDependency(System system, Dependency dependency, Dependencies&&... dependencies)
+			void AddSystemDependencies(System system, Dependency dependency, Dependencies&&... dependencies)
 			{
 				const size_t systemId= system->GetSystemTypeId();
 				const size_t dependencyId = dependency->GetSystemTypeId();
@@ -92,14 +103,6 @@ namespace eae6320
 				}
 
 				this->AddSystemDependency(system, std::forward<Dependencies>(dependencies)...);
-			}
-
-			template<class T>
-			inline T* GetSystem() const
-			{
-				auto it = this->m_systems.find(T::s_systemTypeId);
-
-				return it != this->m_systems.end() ? (T*)it->second : nullptr;
 			}
 
 		private:

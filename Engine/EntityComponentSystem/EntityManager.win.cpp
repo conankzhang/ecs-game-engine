@@ -40,6 +40,8 @@ namespace eae6320
 			{
 				m_entityMap.erase(entity);
 			}
+
+			m_numEntitiesToRemove = 0;
 		}
 	}
 }

@@ -29,6 +29,7 @@ namespace eae6320
 			EntityManager(ComponentManager* i_componentManager);
 			~EntityManager();
 
+			// Create an Entity of type T with optional arguments
 			template<class T, class... ARGS>
 			size_t CreateEntity(ARGS&&... args)
 			{		
@@ -46,7 +47,7 @@ namespace eae6320
 				return entityId;
 			}
 
-
+			// Destroy the Entity with the specified EntityID
 			void DestroyEntity(size_t i_entityId)
 			{
 				if (m_numEntitiesToRemove < m_entitiesToRemove.size())
@@ -60,11 +61,13 @@ namespace eae6320
 				}
 			}
 
+			// Get the Entity with the specified EntityID
 			inline IEntity* GetEntity(size_t i_entityId)
 			{
 				return m_entityMap[i_entityId];
 			}
 
+			// Remove Entities that were marked to be destroyed 
 			void RemoveEntities();
 
 		protected:
