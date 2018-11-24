@@ -32,8 +32,8 @@ namespace eae6320
 		void UpdateInput();
 
 	protected:
-		void ProcessLeftStick();
-		void ProcessRightStick();
+		void HandleMovement();
+		void HandleRotation();
 
 	protected:
 		Physics::sRigidBodyState m_rigidBody;

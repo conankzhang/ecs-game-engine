@@ -43,24 +43,32 @@ eae6320::Math::cMatrix_transformation eae6320::cCameraComponent::GetCameraToProj
 
 void eae6320::cCameraComponent::UpdateInput()
 {
-	ProcessLeftStick();
-	ProcessRightStick();
+	HandleMovement();
+	HandleRotation();
 }
 
-void eae6320::cCameraComponent::ProcessLeftStick()
+void eae6320::cCameraComponent::HandleMovement()
 {
 	Math::sVector leftStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_STICK, 0);
-	leftStickDeflection *= m_movementSpeed;
+	float leftTriggerDeflection = -UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_TRIGGER, 0);
+	float rightTriggerDeflection = UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_TRIGGER, 0);
 
-	Math::sVector right = Math::Cross(GetForward(), Math::sVector(0.0f, 1.0f, 0.0f));
-	right *= leftStickDeflection.x;
+	leftStickDeflection *= m_movementSpeed;
+	leftTriggerDeflection *= m_movementSpeed;
+	rightTriggerDeflection *= m_movementSpeed;
 
 	Math::sVector forward = GetForward() * leftStickDeflection.y;
 
-	SetVelocity(right + forward);
+	Math::sVector lateral = Math::Cross(GetForward(), Math::sVector(0.0f, 1.0f, 0.0f));
+	lateral *= leftStickDeflection.x;
+
+	Math::sVector vertical = Math::sVector(0.0f, 1.0f, 0.0f);
+	vertical *= leftTriggerDeflection + rightTriggerDeflection;
+
+	SetVelocity(forward + lateral + vertical);
 }
 
-void eae6320::cCameraComponent::ProcessRightStick()
+void eae6320::cCameraComponent::HandleRotation()
 {
 	Math::sVector rightStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_STICK, 0);
 	m_rigidBody.angularSpeed = -rightStickDeflection.x * m_rotationSpeed;
