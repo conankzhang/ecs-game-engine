@@ -1,5 +1,5 @@
 /*
-	ECS interface.
+	ECS interface to include to use ECS Engine.
 */
 
 #ifndef ECS_H

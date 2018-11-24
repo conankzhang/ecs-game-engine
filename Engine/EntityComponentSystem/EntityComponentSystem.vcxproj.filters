@@ -1,28 +1,78 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="IEntity.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="EntityManager.h" />
-    <ClInclude Include="IComponent.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="ComponentManager.h" />
-    <ClInclude Include="ISystem.h" />
-    <ClInclude Include="System.h" />
-    <ClInclude Include="SystemManager.h" />
-    <ClInclude Include="IEventDispatcher.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="ECS.h" />
-    <ClInclude Include="TypeManager.h" />
+    <ClInclude Include="IComponent.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="IEntity.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ISystem.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemManager.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityManager.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentManager.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ECS.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeManager.h">
+      <Filter>Implementation</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Interfaces</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IEntity.win.cpp" />
-    <ClCompile Include="IComponent.win.cpp" />
-    <ClCompile Include="ISystem.win.cpp" />
-    <ClCompile Include="EntityManager.win.cpp" />
-    <ClCompile Include="ComponentManager.win.cpp" />
-    <ClCompile Include="SystemManager.win.cpp" />
-    <ClCompile Include="Engine.win.cpp" />
-    <ClCompile Include="TypeManager.cpp" />
+    <ClCompile Include="ComponentManager.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityManager.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="IComponent.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="ISystem.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemManager.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="IEntity.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="TypeManager.win.cpp">
+      <Filter>Windows</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Interfaces">
+      <UniqueIdentifier>{be4bb85b-3eeb-4f87-922a-af9af42b469f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Windows">
+      <UniqueIdentifier>{6dd4b91e-f28c-4f6a-b590-3ce2df6f104b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Implementation">
+      <UniqueIdentifier>{3cd2c1ff-49d4-48eb-a29f-a502c4b43cf0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

@@ -167,7 +167,6 @@
     <ClInclude Include="EntityManager.h" />
     <ClInclude Include="IComponent.h" />
     <ClInclude Include="IEntity.h" />
-    <ClInclude Include="IEventDispatcher.h" />
     <ClInclude Include="ISystem.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="SystemManager.h" />
@@ -181,7 +180,7 @@
     <ClCompile Include="IEntity.win.cpp" />
     <ClCompile Include="ISystem.win.cpp" />
     <ClCompile Include="SystemManager.win.cpp" />
-    <ClCompile Include="TypeManager.cpp" />
+    <ClCompile Include="TypeManager.win.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

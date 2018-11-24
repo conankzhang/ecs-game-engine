@@ -39,6 +39,7 @@ namespace eae6320
 			ECSEngine();
 			~ECSEngine();
 
+			// Getters for ECS managers
 			inline EntityManager* GetEntityManager() { return m_entityManager; }
 			inline ComponentManager* GetComponentManager() { return m_componentManager; }
 			inline SystemManager* GetSystemManager() { return m_systemManager; }
