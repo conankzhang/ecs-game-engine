@@ -53,6 +53,9 @@
     <ProjectReference Include="..\..\Engine\Asserts\Asserts.vcxproj">
       <Project>{464a6551-fca9-4027-bd9e-2b26914782ab}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\..\Engine\ControllerInput\ControllerInput.vcxproj">
+      <Project>{44f5810e-36a8-4571-8a74-8202e256763d}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\..\Engine\EntityComponentSystem\EntityComponentSystem.vcxproj">
       <Project>{cb1fa5cf-d384-4638-83f0-5b27f4d1b29a}</Project>
     </ProjectReference>

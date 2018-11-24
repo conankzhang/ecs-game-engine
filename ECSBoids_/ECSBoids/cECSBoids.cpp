@@ -10,6 +10,7 @@
 
 #include <Engine/Asserts/Asserts.h>
 #include <Engine/UserInput/UserInput.h>
+#include <Engine/ControllerInput/ControllerInput.h>
 
 // Inherited Implementation
 //=========================
@@ -43,17 +44,31 @@ void eae6320::cECSBoids::UpdateSimulationBasedOnTime(const float i_elapsedSecond
 
 eae6320::cResult eae6320::cECSBoids::Initialize()
 {
+	cResult result = Results::Success;
+
+	if (!(result = UserInput::ControllerInput::Initialize()))
+	{
+		EAE6320_ASSERT(false);
+		goto OnExit;
+	}
+
+	
 	ECS = new ECS::ECSEngine();
 
 	ECS->GetEntityManager()->CreateEntity<cBoid>();
 	ECS->GetEntityManager()->CreateEntity<cCamera>();
 
 	ECS->GetSystemManager()->AddSystem<cRenderSystem>();
-	return Results::Success;
+
+OnExit:
+	return result;
 }
 
 eae6320::cResult eae6320::cECSBoids::CleanUp()
 {
 	delete ECS;
+
+	UserInput::ControllerInput::CleanUp();
+
 	return Results::Success;
 }
