@@ -32,6 +32,11 @@ void eae6320::cInputSystem::Initialize()
 	m_aIsPressed = false;
 	m_goalFollowsCamera = false;
 	m_cameraFollowSpeed = 5.0f;
+
+	m_goalFollowDistance = 5.0f;
+	m_minGoalFollowDistance = m_goalFollowDistance;
+	m_maxGoalFollowDistance = 50.0f;
+	m_changeDistanceSpeed = 0.1f;
 }
 
 // Implementation
@@ -40,6 +45,7 @@ void eae6320::cInputSystem::Initialize()
 void eae6320::cInputSystem::UpdateInput()
 {
 	m_cameraComponent->UpdateInput();
+	HandleFollowDistance();
 	HandleFollowToggle();
 }
 
@@ -63,6 +69,38 @@ void eae6320::cInputSystem::HandleFollowToggle()
 
 	if (m_goalFollowsCamera)
 	{
-		m_goalComponent->SetVelocity( (m_cameraComponent->GetPositionInFrontOfCamera(5.0f) - m_goalComponent->GetPosition() ) * m_cameraFollowSpeed);
+		m_goalComponent->SetVelocity( (m_cameraComponent->GetPositionInFrontOfCamera(m_goalFollowDistance) - m_goalComponent->GetPosition() ) * m_cameraFollowSpeed);
+	}
+}
+
+void eae6320::cInputSystem::HandleFollowDistance()
+{
+	if (!m_goalFollowsCamera)
+	{
+		return;
+	}
+
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_SHOULDER))
+	{
+		if (m_goalFollowDistance < m_maxGoalFollowDistance)
+		{
+			m_goalFollowDistance += m_changeDistanceSpeed;
+		}
+		else
+		{
+			m_goalFollowDistance = m_maxGoalFollowDistance;
+		}
+	}
+
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::LEFT_SHOULDER))
+	{
+		if (m_goalFollowDistance > m_minGoalFollowDistance)
+		{
+			m_goalFollowDistance -= m_changeDistanceSpeed;
+		}
+		else
+		{
+			m_goalFollowDistance = m_minGoalFollowDistance;
+		}
 	}
 }

@@ -33,11 +33,19 @@ namespace eae6320
 
 	protected:
 		void HandleFollowToggle();
+		void HandleFollowDistance();
 
 	private:
 		cCameraComponent* m_cameraComponent;
 		cGoalComponent* m_goalComponent;
+
+		float m_goalFollowDistance;
+		float m_changeDistanceSpeed;
+		float m_minGoalFollowDistance;
+		float m_maxGoalFollowDistance;
+
 		float m_cameraFollowSpeed;
+
 		bool m_aIsPressed;
 		bool m_goalFollowsCamera;
 	};
