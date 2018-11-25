@@ -13,6 +13,9 @@ eae6320::cGoalComponent::cGoalComponent(cRenderComponent* i_goalRenderComponent)
 	m_goalRenderComponent = i_goalRenderComponent;
 }
 
+// Implementation
+//===============
+
 eae6320::Math::sVector eae6320::cGoalComponent::GetPosition()
 {
 	return m_goalRenderComponent->GetPosition();

@@ -68,6 +68,9 @@
     <ClInclude Include="cBoidSystem.h">
       <Filter>Systems</Filter>
     </ClInclude>
+    <ClInclude Include="cBoidComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
@@ -98,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="cBoidSystem.cpp">
       <Filter>Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="cBoidComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

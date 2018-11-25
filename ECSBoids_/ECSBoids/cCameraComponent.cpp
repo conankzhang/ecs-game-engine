@@ -15,6 +15,9 @@ eae6320::cCameraComponent::cCameraComponent(Math::sVector i_position, Math::cQua
 	m_rigidBody.orientation = i_orientation;
 }
 
+// Implementation
+//===============
+
 void eae6320::cCameraComponent::Update(const float i_deltaTime)
 {
 	m_rigidBody.Update(i_deltaTime);
