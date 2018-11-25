@@ -80,11 +80,11 @@ namespace eae6320
 			// Implementation
 			//===============
 
-		private:
 
 			// Initialization / Shut Down
 			//---------------------------
 
+		public:
 			cQuaternion( const float i_w, const float i_x, const float i_y, const float i_z );
 
 			// Friends

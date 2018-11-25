@@ -103,9 +103,9 @@ void eae6320::cRenderComponent::SetRotationAxis(Math::sVector i_rotationAxis)
 	m_rigidBody.angularVelocity_axis_local = i_rotationAxis;
 }
 
-void eae6320::cRenderComponent::SetOrientation(Math::cQuaternion i_orientation)
+eae6320::Math::sVector eae6320::cRenderComponent::GetForward()
 {
-	m_rigidBody.orientation = i_orientation;
+	return m_rigidBody.orientation.CalculateForwardDirection();
 }
 
 eae6320::Math::sVector eae6320::cRenderComponent::GetPosition()

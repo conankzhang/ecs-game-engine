@@ -29,7 +29,6 @@ namespace eae6320
 
 		Math::sVector GetPosition();
 		void SetVelocity(Math::sVector i_velocity);
-		void SetOrientation(Math::cQuaternion i_orientation);
 
 	protected:
 		cRenderComponent* m_boidRenderComponent;

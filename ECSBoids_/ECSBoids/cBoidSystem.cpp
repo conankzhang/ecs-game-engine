@@ -39,16 +39,7 @@ void eae6320::cBoidSystem::Update(float i_deltaTime)
 		if (boidComponent && boidComponent->IsActive())
 		{
 			Math::sVector desiredVelocity = goalPosition - boidComponent->GetPosition();
-			boidComponent->SetOrientation(GetOrientationFromVector(desiredVelocity));
 			boidComponent->SetVelocity(desiredVelocity);
 		}
 	}
-}
-
-eae6320::Math::cQuaternion eae6320::cBoidSystem::GetOrientationFromVector(Math::sVector i_direction)
-{
-	i_direction.Normalize();
-
-	return Math::cQuaternion();
-
 }

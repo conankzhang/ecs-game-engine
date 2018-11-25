@@ -24,9 +24,9 @@ eae6320::Math::sVector eae6320::cBoidComponent::GetPosition()
 void eae6320::cBoidComponent::SetVelocity(Math::sVector i_velocity)
 {
 	m_boidRenderComponent->SetVelocity(i_velocity);
-}
 
-void eae6320::cBoidComponent::SetOrientation(Math::cQuaternion i_orientation)
-{
-	m_boidRenderComponent->SetOrientation(i_orientation);
+	Math::sVector forward = m_boidRenderComponent->GetForward();
+	float exteriorProduct = i_velocity.x * forward.z - i_velocity.z * forward.x;
+
+	m_boidRenderComponent->SetAngularSpeed(exteriorProduct);
 }
