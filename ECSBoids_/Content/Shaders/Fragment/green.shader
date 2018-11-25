@@ -43,7 +43,7 @@ void main(
 {
 	o_color = float4(
 		// RGB (color)
-		0.10, 0.47, 0.40,
+		0.10, 0.67, 0.40,
 		// Alpha (transparency)
 		1.0 );
 }
@@ -82,7 +82,7 @@ void main()
 {
 	o_color = vec4(
 		// RGB (color)
-		0.10, 0.47, 0.40,
+		0.10, 0.67, 0.40,
 		// Alpha (transparency)
 		1.0 );
 }
