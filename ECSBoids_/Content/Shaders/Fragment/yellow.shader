@@ -43,9 +43,12 @@ void main(
 {
 	o_color = float4(
 		// RGB (color)
-		1.0, 1.0, 0.0,
+		0.85, 0.85, 0.0,
 		// Alpha (transparency)
 		1.0 );
+
+	o_color.r = 0.75 + sin(g_elapsedSecondCount_simulationTime * 4) * 0.1;
+	o_color.g = 0.75 + sin(g_elapsedSecondCount_simulationTime * 4) * 0.1;
 }
 
 #elif defined( EAE6320_PLATFORM_GL )
@@ -82,9 +85,12 @@ void main()
 {
 	o_color = vec4(
 		// RGB (color)
-		1.0, 1.0, 0.0,
+		0.85, 0.85, 0.0,
 		// Alpha (transparency)
 		1.0 );
+
+	o_color.r = 0.75 + sin(g_elapsedSecondCount_simulationTime * 4) * 0.1;
+	o_color.g = 0.75 + sin(g_elapsedSecondCount_simulationTime * 4) * 0.1;
 }
 
 #endif
