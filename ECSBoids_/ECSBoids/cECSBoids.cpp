@@ -6,6 +6,7 @@
 #include "cBoid.h"
 #include "cGoal.h"
 #include "cCamera.h"
+#include "cFloor.h"
 
 #include "cRenderComponent.h"
 #include "cCameraComponent.h"
@@ -74,6 +75,7 @@ eae6320::cResult eae6320::cECSBoids::Initialize()
 	
 	ECS = new ECS::ECSEngine();
 
+	ECS->GetEntityManager()->CreateEntity<cFloor>();
 	size_t cameraId = ECS->GetEntityManager()->CreateEntity<cCamera>();
 	ECS->GetEntityManager()->CreateEntity<cGoal>(ECS->GetEntityManager()->GetEntity(cameraId)->GetComponent<cCameraComponent>());
 

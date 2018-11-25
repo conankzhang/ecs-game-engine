@@ -71,6 +71,9 @@
     <ClInclude Include="cBoidComponent.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="cFloor.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cECSBoids.cpp" />
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="cBoidComponent.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="cFloor.cpp">
+      <Filter>Entities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
