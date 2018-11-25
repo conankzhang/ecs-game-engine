@@ -28,8 +28,8 @@ namespace eae6320
 		cGoalComponent(cRenderComponent* i_goalRenderComponent);
 
 		Math::sVector GetPosition();
-		void SetPosition(Math::sVector i_desiredPosition);
-		void HandleInput();
+		void SetPosition(Math::sVector i_position);
+		void SetVelocity(Math::sVector i_velocity);
 	protected:
 		cRenderComponent* m_goalRenderComponent;
 	};

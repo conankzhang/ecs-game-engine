@@ -34,6 +34,7 @@ namespace eae6320
 	private:
 		cCameraComponent* m_cameraComponent;
 		cGoalComponent* m_goalComponent;
+		float m_cameraFollowSpeed;
 		bool m_aIsPressed;
 	};
 }

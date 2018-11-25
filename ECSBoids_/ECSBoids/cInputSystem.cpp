@@ -30,6 +30,7 @@ void eae6320::cInputSystem::Initialize()
 	m_goalComponent = dynamic_cast<cGoalComponent*>(goalIterator->second);
 
 	m_aIsPressed = false;
+	m_cameraFollowSpeed = 5.0f;
 }
 
 // Implementation
@@ -39,14 +40,15 @@ void eae6320::cInputSystem::UpdateInput()
 {
 	m_cameraComponent->UpdateInput();
 
-	if (!m_aIsPressed && UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
 	{
 		m_aIsPressed = true;
-		m_goalComponent->SetPosition(m_cameraComponent->GetPositionInFrontOfCamera(5.0f));
+		m_goalComponent->SetVelocity( (m_cameraComponent->GetPositionInFrontOfCamera(5.0f) - m_goalComponent->GetPosition() ) * m_cameraFollowSpeed);
 	}
 
 	if (m_aIsPressed && !UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
 	{
 		m_aIsPressed = false;
+		m_goalComponent->SetVelocity(Math::sVector());
 	}
 }

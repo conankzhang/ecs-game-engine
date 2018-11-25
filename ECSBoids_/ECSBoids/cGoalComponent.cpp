@@ -21,7 +21,12 @@ eae6320::Math::sVector eae6320::cGoalComponent::GetPosition()
 	return m_goalRenderComponent->GetPosition();
 }
 
-void eae6320::cGoalComponent::SetPosition(Math::sVector i_desiredPosition)
+void eae6320::cGoalComponent::SetPosition(Math::sVector i_position)
 {
-	m_goalRenderComponent->SetPosition(i_desiredPosition);
+	m_goalRenderComponent->SetPosition(i_position);
+}
+
+void eae6320::cGoalComponent::SetVelocity(Math::sVector i_velocity)
+{
+	m_goalRenderComponent->SetVelocity(i_velocity);
 }
