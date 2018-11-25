@@ -2,6 +2,7 @@
 //=========
 
 #include "cBoidSystem.h"
+#include "cBoidComponent.h"
 #include "cGoalComponent.h"
 
 // Initialization / Clean Up
@@ -29,5 +30,15 @@ void eae6320::cBoidSystem::Initialize()
 
 void eae6320::cBoidSystem::Update(float i_deltaTime)
 {
+	Math::sVector goalPosition = m_goal->GetPosition();
 
+	for (auto component = m_componentManager->begin<cBoidComponent>(); component != m_componentManager->end<cBoidComponent>(); ++component)
+	{
+		cBoidComponent* boidComponent = dynamic_cast<cBoidComponent*>(component->second);
+
+		if (boidComponent && boidComponent->IsActive())
+		{
+			boidComponent->SetVelocity(goalPosition - boidComponent->GetPosition());
+		}
+	}
 }
