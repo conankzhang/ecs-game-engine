@@ -23,11 +23,11 @@ namespace eae6320
 			m_entityComponentMap.resize(1024);
 			for (std::vector<size_t> v : m_entityComponentMap)
 			{
-				v.resize(1024);
+				v.resize(65536);
 			}
 			std::vector< std::vector<size_t> >::iterator row;
 			for (row = m_entityComponentMap.begin(); row != m_entityComponentMap.end(); row++) {
-				row->resize(1024);
+				row->resize(65536);
 			}
 		}
 
