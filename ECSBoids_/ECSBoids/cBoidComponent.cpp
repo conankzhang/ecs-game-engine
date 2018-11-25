@@ -25,3 +25,8 @@ void eae6320::cBoidComponent::SetVelocity(Math::sVector i_velocity)
 {
 	m_boidRenderComponent->SetVelocity(i_velocity);
 }
+
+void eae6320::cBoidComponent::SetOrientation(Math::cQuaternion i_orientation)
+{
+	m_boidRenderComponent->SetOrientation(i_orientation);
+}

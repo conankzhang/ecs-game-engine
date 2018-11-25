@@ -8,6 +8,7 @@
 // Includes
 //=========
 #include <Engine/EntityComponentSystem/System.h>
+#include <Engine/Math/cQuaternion.h>
 
 // Forward Declarations
 //=====================
@@ -29,6 +30,9 @@ namespace eae6320
 
 		virtual void Initialize() override;
 		virtual void Update(float i_deltaTime) override;
+
+	protected:
+		Math::cQuaternion GetOrientationFromVector(Math::sVector i_direction);
 
 	private:
 		cGoalComponent* m_goal;

@@ -9,6 +9,7 @@
 //=========
 #include <Engine/EntityComponentSystem/Component.h>
 #include <Engine/Math/sVector.h>
+#include <Engine/Math/cQuaternion.h>
 
 // Forward Declarations
 //=====================
@@ -28,6 +29,7 @@ namespace eae6320
 
 		Math::sVector GetPosition();
 		void SetVelocity(Math::sVector i_velocity);
+		void SetOrientation(Math::cQuaternion i_orientation);
 
 	protected:
 		cRenderComponent* m_boidRenderComponent;
