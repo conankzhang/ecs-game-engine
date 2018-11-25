@@ -44,9 +44,9 @@ namespace eae6320
 		const float m_verticalFieldOfView_inRadians = 45.0f;
 		const float m_aspectRatio = 1.777f;
 		const float m_z_nearPlane = 0.1f;
-		const float m_z_farPlane = 100.0f;
+		const float m_z_farPlane = 500.0f;
 
-		const float m_movementSpeed = 5.0f;
+		const float m_movementSpeed = 10.0f;
 		const float m_rotationSpeed = 2.0f;
 	};
 }
