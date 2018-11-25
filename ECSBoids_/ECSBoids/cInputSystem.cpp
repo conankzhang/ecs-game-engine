@@ -37,8 +37,14 @@ void eae6320::cInputSystem::UpdateInput()
 {
 	m_cameraComponent->UpdateInput();
 
-	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
+	if (!m_aIsPressed && UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
 	{
+		m_aIsPressed = true;
 		m_goalComponent->SetPosition(m_cameraComponent->GetPositionInFrontOfCamera(5.0f));
+	}
+
+	if (m_aIsPressed && !UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
+	{
+		m_aIsPressed = false;
 	}
 }
