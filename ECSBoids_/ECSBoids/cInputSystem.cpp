@@ -28,6 +28,8 @@ void eae6320::cInputSystem::Initialize()
 
 	auto goalIterator = m_componentManager->begin<cGoalComponent>();
 	m_goalComponent = dynamic_cast<cGoalComponent*>(goalIterator->second);
+
+	m_aIsPressed = false;
 }
 
 // Implementation
