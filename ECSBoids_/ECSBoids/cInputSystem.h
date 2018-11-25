@@ -31,11 +31,15 @@ namespace eae6320
 		virtual void Initialize() override;
 		void UpdateInput();
 
+	protected:
+		void HandleFollowToggle();
+
 	private:
 		cCameraComponent* m_cameraComponent;
 		cGoalComponent* m_goalComponent;
 		float m_cameraFollowSpeed;
 		bool m_aIsPressed;
+		bool m_goalFollowsCamera;
 	};
 }
 

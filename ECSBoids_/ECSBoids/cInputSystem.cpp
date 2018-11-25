@@ -30,6 +30,7 @@ void eae6320::cInputSystem::Initialize()
 	m_goalComponent = dynamic_cast<cGoalComponent*>(goalIterator->second);
 
 	m_aIsPressed = false;
+	m_goalFollowsCamera = false;
 	m_cameraFollowSpeed = 5.0f;
 }
 
@@ -39,16 +40,29 @@ void eae6320::cInputSystem::Initialize()
 void eae6320::cInputSystem::UpdateInput()
 {
 	m_cameraComponent->UpdateInput();
+	HandleFollowToggle();
+}
 
-	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
+void eae6320::cInputSystem::HandleFollowToggle()
+{
+	if (!m_aIsPressed && UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
 	{
 		m_aIsPressed = true;
-		m_goalComponent->SetVelocity( (m_cameraComponent->GetPositionInFrontOfCamera(5.0f) - m_goalComponent->GetPosition() ) * m_cameraFollowSpeed);
+		m_goalFollowsCamera = !m_goalFollowsCamera;
+
+		if (!m_goalFollowsCamera)
+		{
+			m_goalComponent->SetVelocity(Math::sVector());
+		}
 	}
 
 	if (m_aIsPressed && !UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
 	{
 		m_aIsPressed = false;
-		m_goalComponent->SetVelocity(Math::sVector());
+	}
+
+	if (m_goalFollowsCamera)
+	{
+		m_goalComponent->SetVelocity( (m_cameraComponent->GetPositionInFrontOfCamera(5.0f) - m_goalComponent->GetPosition() ) * m_cameraFollowSpeed);
 	}
 }
