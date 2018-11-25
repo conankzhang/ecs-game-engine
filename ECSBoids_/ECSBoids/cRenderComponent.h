@@ -41,6 +41,7 @@ namespace eae6320
 
 		void Update(const float i_deltaTime);
 		void SetVelocity(Math::sVector i_velocity);
+		Math::sVector GetPosition();
 		void SetPosition(Math::sVector i_position);
 		Math::cMatrix_transformation GetTransform(const float i_deltaTime);
 

@@ -27,6 +27,7 @@ namespace eae6320
 	public:
 		cGoalComponent(cRenderComponent* i_goalRenderComponent);
 
+		Math::sVector GetPosition();
 		void SetPosition(Math::sVector i_desiredPosition);
 		void HandleInput();
 	protected:
