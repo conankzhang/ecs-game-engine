@@ -43,6 +43,7 @@ namespace eae6320
 
 		void SetVelocity(Math::sVector i_velocity);
 		void SetAngularSpeed(float i_speed);
+		void SetRotationAxis(Math::sVector i_rotationAxis);
 
 		Math::sVector GetPosition();
 		void SetPosition(Math::sVector i_position);

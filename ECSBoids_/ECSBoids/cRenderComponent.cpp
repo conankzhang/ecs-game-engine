@@ -98,6 +98,11 @@ void eae6320::cRenderComponent::SetAngularSpeed(float i_speed)
 	m_rigidBody.angularSpeed = i_speed;
 }
 
+void eae6320::cRenderComponent::SetRotationAxis(Math::sVector i_rotationAxis)
+{
+	m_rigidBody.angularVelocity_axis_local = i_rotationAxis;
+}
+
 eae6320::Math::sVector eae6320::cRenderComponent::GetPosition()
 {
 	return m_rigidBody.position;
