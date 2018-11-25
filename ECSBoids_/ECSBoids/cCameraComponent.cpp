@@ -30,6 +30,21 @@ eae6320::Math::sVector eae6320::cCameraComponent::GetForward()
 	return m_rigidBody.orientation.CalculateForwardDirection();
 }
 
+eae6320::Math::sVector eae6320::cCameraComponent::GetPosition()
+{
+	return m_rigidBody.position;
+}
+
+eae6320::Math::sVector eae6320::cCameraComponent::GetPositionInFrontOfCamera(float i_distanceInFront)
+{
+	Math::sVector position = GetPosition();
+
+	Math::sVector forward = GetForward();
+	forward.Normalize();
+
+	return position += forward * i_distanceInFront;
+}
+
 eae6320::Math::cMatrix_transformation eae6320::cCameraComponent::GetWorldToCameraTransform(const float i_deltaTime)
 {
 	return Math::cMatrix_transformation::CreateWorldToCameraTransform(Math::cMatrix_transformation(m_rigidBody.PredictFutureOrientation(i_deltaTime), m_rigidBody.PredictFuturePosition(i_deltaTime)));

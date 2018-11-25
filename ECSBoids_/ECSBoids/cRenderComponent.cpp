@@ -87,6 +87,11 @@ void eae6320::cRenderComponent::SetVelocity(Math::sVector i_velocity)
 	m_rigidBody.velocity = i_velocity;
 }
 
+void eae6320::cRenderComponent::SetPosition(Math::sVector i_position)
+{
+	m_rigidBody.position = i_position;
+}
+
 eae6320::Math::cMatrix_transformation eae6320::cRenderComponent::GetTransform(const float i_deltaTime)
 {
 	return Math::cMatrix_transformation(m_rigidBody.PredictFutureOrientation(i_deltaTime), m_rigidBody.PredictFuturePosition(i_deltaTime));

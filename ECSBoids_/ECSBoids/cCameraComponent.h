@@ -25,6 +25,8 @@ namespace eae6320
 		void Update(const float i_deltaTime);
 		void SetVelocity(Math::sVector i_velocity);
 		Math::sVector GetForward();
+		Math::sVector GetPosition();
+		Math::sVector GetPositionInFrontOfCamera(float i_distanceInFront);
 
 		Math::cMatrix_transformation GetWorldToCameraTransform(const float i_deltaTime);
 		Math::cMatrix_transformation GetCameraToProjectedTransform();

@@ -11,6 +11,10 @@
 
 // Forward Declarations
 //=====================
+namespace eae6320
+{
+	class cCameraComponent;
+}
 
 // Class Declaration
 //==================
@@ -20,9 +24,12 @@ namespace eae6320
 	class cGoal: public ECS::Entity<cGoal>
 	{
 	public:
-		cGoal();
+		cGoal(cCameraComponent* i_cameraToFollow);
 
 		virtual void Initialize() override;
+
+	private:
+		cCameraComponent* m_cameraToFollow;
 	};
 }
 

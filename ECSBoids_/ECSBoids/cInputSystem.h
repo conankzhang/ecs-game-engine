@@ -14,6 +14,7 @@
 namespace eae6320
 {
 	class cCameraComponent;
+	class cGoalComponent;
 }
 
 // Class Declaration
@@ -32,6 +33,7 @@ namespace eae6320
 
 	private:
 		cCameraComponent* m_cameraComponent;
+		cGoalComponent* m_goalComponent;
 	};
 }
 

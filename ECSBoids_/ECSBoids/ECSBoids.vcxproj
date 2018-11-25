@@ -33,6 +33,7 @@
     <ClInclude Include="cCameraComponent.h" />
     <ClInclude Include="cECSBoids.h" />
     <ClInclude Include="cGoal.h" />
+    <ClInclude Include="cGoalComponent.h" />
     <ClInclude Include="cInputSystem.h" />
     <ClInclude Include="cRenderComponent.h" />
     <ClInclude Include="cRenderSystem.h" />
@@ -45,6 +46,7 @@
     <ClCompile Include="cCameraComponent.cpp" />
     <ClCompile Include="cECSBoids.cpp" />
     <ClCompile Include="cGoal.cpp" />
+    <ClCompile Include="cGoalComponent.cpp" />
     <ClCompile Include="cInputSystem.cpp" />
     <ClCompile Include="cRenderComponent.cpp" />
     <ClCompile Include="cRenderSystem.cpp" />
