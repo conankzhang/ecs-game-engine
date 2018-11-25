@@ -40,9 +40,13 @@ namespace eae6320
 		Graphics::cEffect* GetEffect();
 
 		void Update(const float i_deltaTime);
+
 		void SetVelocity(Math::sVector i_velocity);
+		void SetAngularSpeed(float i_speed);
+
 		Math::sVector GetPosition();
 		void SetPosition(Math::sVector i_position);
+
 		Math::cMatrix_transformation GetTransform(const float i_deltaTime);
 
 	protected:

@@ -30,6 +30,7 @@ namespace eae6320
 
 	private:
 		cCameraComponent* m_cameraToFollow;
+		float m_rotationSpeed;
 	};
 }
 
