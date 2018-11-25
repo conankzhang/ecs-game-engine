@@ -64,6 +64,9 @@ eae6320::cResult eae6320::cECSBoids::Initialize()
 	ECS = new ECS::ECSEngine();
 
 	ECS->GetEntityManager()->CreateEntity<cBoid>();
+	ECS->GetEntityManager()->CreateEntity<cBoid>();
+	ECS->GetEntityManager()->CreateEntity<cBoid>();
+
 	size_t cameraId = ECS->GetEntityManager()->CreateEntity<cCamera>();
 	ECS->GetEntityManager()->CreateEntity<cGoal>(ECS->GetEntityManager()->GetEntity(cameraId)->GetComponent<cCameraComponent>());
 
