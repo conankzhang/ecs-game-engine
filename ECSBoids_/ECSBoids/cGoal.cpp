@@ -18,7 +18,7 @@ eae6320::cGoal::cGoal(cCameraComponent* i_cameraToFollow)
 
 void eae6320::cGoal::Initialize()
 {
-	AddComponent<cRenderComponent>("data/prefabs/goal.prefab", Math::sVector(), Math::cQuaternion());
+	AddComponent<cRenderComponent>("data/prefabs/goal.prefab", Math::sVector(0.0f, 2.5f, 0.0f), Math::cQuaternion());
 	AddComponent<cGoalComponent>(GetComponent<cRenderComponent>());
 	GetComponent<cRenderComponent>()->SetAngularSpeed(m_rotationSpeed);
 }

@@ -25,6 +25,11 @@ void eae6320::cCameraComponent::Update(const float i_deltaTime)
 
 void eae6320::cCameraComponent::SetVelocity(Math::sVector i_velocity)
 {
+	if (m_rigidBody.position.y < 1.0f && i_velocity.y < 0.0f)
+	{
+		m_rigidBody.velocity = Math::sVector(i_velocity.x, 0.0f, i_velocity.z);
+		return;
+	}
 	m_rigidBody.velocity = i_velocity;
 }
 
