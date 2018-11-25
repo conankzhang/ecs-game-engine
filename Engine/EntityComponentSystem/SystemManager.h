@@ -92,7 +92,7 @@ namespace eae6320
 
 			// Add a Dependencies to System to indicate the dependencies should be updated before the system 
 			template<class System, class Dependency, class... Dependencies>
-			void AddSystemDependencies(System system, Dependency dependency, Dependencies&&... dependencies)
+			void AddSystemDependencies(System system, Dependency dependency, Dependencies&... dependencies)
 			{
 				const size_t systemId= system->GetSystemTypeId();
 				const size_t dependencyId = dependency->GetSystemTypeId();

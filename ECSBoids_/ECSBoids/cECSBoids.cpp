@@ -12,6 +12,7 @@
 
 #include "cRenderSystem.h"
 #include "cInputSystem.h"
+#include "cBoidSystem.h"
 
 #include <Engine/Asserts/Asserts.h>
 #include <Engine/UserInput/UserInput.h>
@@ -68,8 +69,10 @@ eae6320::cResult eae6320::cECSBoids::Initialize()
 
 	cRenderSystem* renderSystem = ECS->GetSystemManager()->AddSystem<cRenderSystem>();
 	cInputSystem* inputSystem = ECS->GetSystemManager()->AddSystem<cInputSystem>();
+	cBoidSystem* boidSystem = ECS->GetSystemManager()->AddSystem<cBoidSystem>();
 
-	ECS->GetSystemManager()->AddSystemDependency<cRenderSystem*, cInputSystem*>(renderSystem, inputSystem);
+	ECS->GetSystemManager()->AddSystemDependency<cBoidSystem*, cInputSystem*>(boidSystem, inputSystem);
+	ECS->GetSystemManager()->AddSystemDependencies<cRenderSystem*, cInputSystem*, cBoidSystem*>(renderSystem, inputSystem, boidSystem);
 
 OnExit:
 	return result;

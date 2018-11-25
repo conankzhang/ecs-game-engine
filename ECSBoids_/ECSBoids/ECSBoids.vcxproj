@@ -29,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cBoid.h" />
+    <ClInclude Include="cBoidSystem.h" />
     <ClInclude Include="cCamera.h" />
     <ClInclude Include="cCameraComponent.h" />
     <ClInclude Include="cECSBoids.h" />
@@ -42,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cBoid.cpp" />
+    <ClCompile Include="cBoidSystem.cpp" />
     <ClCompile Include="cCamera.cpp" />
     <ClCompile Include="cCameraComponent.cpp" />
     <ClCompile Include="cECSBoids.cpp" />
