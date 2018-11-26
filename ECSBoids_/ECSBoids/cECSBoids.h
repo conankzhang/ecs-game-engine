@@ -85,6 +85,7 @@ namespace eae6320
 	private:
 		ECS::ECSEngine* ECS;
 		bool m_bIsPressed;
+		bool m_shiftIsPressed;
 	};
 }
 

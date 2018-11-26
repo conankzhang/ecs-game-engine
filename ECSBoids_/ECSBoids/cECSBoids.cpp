@@ -51,6 +51,17 @@ void eae6320::cECSBoids::UpdateBasedOnInput()
 		m_bIsPressed = false;
 	}
 
+	if (!m_shiftIsPressed && UserInput::IsKeyPressed(UserInput::KeyCodes::Shift))
+	{
+		m_shiftIsPressed = true;
+		ECS->GetEntityManager()->CreateEntity<cBoid>();
+	}
+
+	if (m_shiftIsPressed && !UserInput::IsKeyPressed(UserInput::KeyCodes::Shift))
+	{
+		m_shiftIsPressed = false;
+	}
+
 	ECS->GetSystemManager()->GetSystem<cInputSystem>()->UpdateInput();
 }
 
