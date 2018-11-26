@@ -33,6 +33,8 @@ namespace eae6320
 
 	protected:
 		void HandleFollowToggle();
+		void OnFollowToggle();
+
 		void HandleFollowDistance();
 
 	private:
@@ -47,6 +49,7 @@ namespace eae6320
 		float m_cameraFollowSpeed;
 
 		bool m_aIsPressed;
+		bool m_spaceIsPressed;
 		bool m_goalFollowsCamera;
 	};
 }

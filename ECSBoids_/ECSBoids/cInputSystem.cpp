@@ -7,6 +7,7 @@
 #include "cGoalComponent.h"
 
 #include <Engine/ControllerInput/ControllerInput.h>
+#include <Engine/UserInput/UserInput.h>
 
 // Initialization / Clean Up
 //--------------------------
@@ -30,6 +31,7 @@ void eae6320::cInputSystem::Initialize()
 	m_goalComponent = dynamic_cast<cGoalComponent*>(goalIterator->second);
 
 	m_aIsPressed = false;
+	m_spaceIsPressed = false;
 	m_goalFollowsCamera = false;
 	m_cameraFollowSpeed = 5.0f;
 
@@ -47,6 +49,11 @@ void eae6320::cInputSystem::UpdateInput()
 	m_cameraComponent->UpdateInput();
 	HandleFollowDistance();
 	HandleFollowToggle();
+
+	if (m_goalFollowsCamera)
+	{
+		m_goalComponent->SetVelocity( (m_cameraComponent->GetPositionInFrontOfCamera(m_goalFollowDistance) - m_goalComponent->GetPosition() ) * m_cameraFollowSpeed);
+	}
 }
 
 void eae6320::cInputSystem::HandleFollowToggle()
@@ -54,12 +61,7 @@ void eae6320::cInputSystem::HandleFollowToggle()
 	if (!m_aIsPressed && UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
 	{
 		m_aIsPressed = true;
-		m_goalFollowsCamera = !m_goalFollowsCamera;
-
-		if (!m_goalFollowsCamera)
-		{
-			m_goalComponent->SetVelocity(Math::sVector());
-		}
+		OnFollowToggle();
 	}
 
 	if (m_aIsPressed && !UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::A))
@@ -67,9 +69,25 @@ void eae6320::cInputSystem::HandleFollowToggle()
 		m_aIsPressed = false;
 	}
 
-	if (m_goalFollowsCamera)
+	if (!m_spaceIsPressed && UserInput::IsKeyPressed(UserInput::KeyCodes::Space))
 	{
-		m_goalComponent->SetVelocity( (m_cameraComponent->GetPositionInFrontOfCamera(m_goalFollowDistance) - m_goalComponent->GetPosition() ) * m_cameraFollowSpeed);
+		m_spaceIsPressed = true;
+		OnFollowToggle();
+	}
+
+	if (m_spaceIsPressed && !UserInput::IsKeyPressed(UserInput::KeyCodes::Space))
+	{
+		m_spaceIsPressed = false;
+	}
+}
+
+void eae6320::cInputSystem::OnFollowToggle()
+{
+	m_goalFollowsCamera = !m_goalFollowsCamera;
+
+	if (!m_goalFollowsCamera)
+	{
+		m_goalComponent->SetVelocity(Math::sVector());
 	}
 }
 
