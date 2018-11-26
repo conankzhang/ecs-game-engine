@@ -41,6 +41,9 @@ namespace eae6320
 				S = 0x53,
 				D = 0x44,
 
+				Q = 0x51,
+				E = 0x45,
+
 				Space = 0x20,
 
 				Escape = 0x1b,

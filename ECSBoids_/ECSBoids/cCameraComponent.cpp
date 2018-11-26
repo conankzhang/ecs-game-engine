@@ -92,12 +92,12 @@ eae6320::Math::sVector eae6320::cCameraComponent::GetControllerMovementInput()
 	}
 
 	float y_movement = 0.0f;
-	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Up))
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::E))
 	{
 		y_movement += 1.0f;
 	}
 
-	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Down))
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Q))
 	{
 		y_movement -= 1.0f;
 	}
