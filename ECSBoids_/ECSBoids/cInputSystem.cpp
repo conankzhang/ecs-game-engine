@@ -98,7 +98,9 @@ void eae6320::cInputSystem::HandleFollowDistance()
 		return;
 	}
 
-	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_SHOULDER))
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_SHOULDER) ||
+		UserInput::IsKeyPressed(UserInput::KeyCodes::Up)
+		)
 	{
 		if (m_goalFollowDistance < m_maxGoalFollowDistance)
 		{
@@ -110,7 +112,9 @@ void eae6320::cInputSystem::HandleFollowDistance()
 		}
 	}
 
-	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::LEFT_SHOULDER))
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::LEFT_SHOULDER) ||
+		UserInput::IsKeyPressed(UserInput::KeyCodes::Down)
+		)
 	{
 		if (m_goalFollowDistance > m_minGoalFollowDistance)
 		{
