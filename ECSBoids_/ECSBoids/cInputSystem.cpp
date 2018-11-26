@@ -33,7 +33,7 @@ void eae6320::cInputSystem::Initialize()
 	m_aIsPressed = false;
 	m_spaceIsPressed = false;
 	m_goalFollowsCamera = false;
-	m_cameraFollowSpeed = 5.0f;
+	m_cameraFollowSpeed = 10.0f;
 
 	m_goalFollowDistance = 5.0f;
 	m_minGoalFollowDistance = m_goalFollowDistance;
