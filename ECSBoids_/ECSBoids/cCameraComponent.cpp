@@ -113,15 +113,7 @@ eae6320::Math::sVector eae6320::cCameraComponent::GetControllerMovementInput()
 		z_movement -= 1.0f;
 	}
 
-	Math::sVector forward = GetForward() * z_movement;
-
-	Math::sVector lateral = Math::Cross(GetForward(), Math::sVector(0.0f, 1.0f, 0.0f));
-	lateral *= x_movement;
-
-	Math::sVector vertical = Math::sVector(0.0f, 1.0f, 0.0f);
-	vertical *= y_movement;
-
-	return (forward + lateral + vertical) * m_movementSpeed;
+	return GetMovementInput(x_movement, y_movement, z_movement);
 }
 
 eae6320::Math::sVector eae6320::cCameraComponent::GetKeyboardMovementInput()
@@ -130,13 +122,18 @@ eae6320::Math::sVector eae6320::cCameraComponent::GetKeyboardMovementInput()
 	float leftTriggerDeflection = -UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_TRIGGER, 0);
 	float rightTriggerDeflection = UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_TRIGGER, 0);
 
-	Math::sVector forward = GetForward() * leftStickDeflection.y;
+	return GetMovementInput(leftStickDeflection.x, leftTriggerDeflection + rightTriggerDeflection, leftStickDeflection.y);
+}
+
+eae6320::Math::sVector eae6320::cCameraComponent::GetMovementInput(float i_xInput, float i_yInput, float i_zInput)
+{
+	Math::sVector forward = GetForward() * i_zInput;
 
 	Math::sVector lateral = Math::Cross(GetForward(), Math::sVector(0.0f, 1.0f, 0.0f));
-	lateral *= leftStickDeflection.x;
+	lateral *= i_xInput;
 
 	Math::sVector vertical = Math::sVector(0.0f, 1.0f, 0.0f);
-	vertical *= leftTriggerDeflection + rightTriggerDeflection;
+	vertical *= i_yInput;
 
 	return (forward + lateral + vertical) * m_movementSpeed;
 }

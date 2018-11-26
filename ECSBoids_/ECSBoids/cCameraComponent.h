@@ -37,6 +37,7 @@ namespace eae6320
 		void HandleMovementInput();
 		Math::sVector GetControllerMovementInput();
 		Math::sVector GetKeyboardMovementInput();
+		Math::sVector GetMovementInput(float i_xInput, float i_yInput, float i_zInput);
 
 		void HandleRotationInput();
 		float GetControllerRotationInput();
