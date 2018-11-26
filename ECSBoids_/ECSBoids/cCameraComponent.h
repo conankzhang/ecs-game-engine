@@ -34,8 +34,13 @@ namespace eae6320
 		void UpdateInput();
 
 	protected:
-		void HandleMovement();
-		void HandleRotation();
+		void HandleMovementInput();
+		Math::sVector GetControllerMovementInput();
+		Math::sVector GetKeyboardMovementInput();
+
+		void HandleRotationInput();
+		float GetControllerRotationInput();
+		float GetKeyboardRotationInput();
 
 	protected:
 		Physics::sRigidBodyState m_rigidBody;

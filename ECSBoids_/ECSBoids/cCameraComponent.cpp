@@ -5,6 +5,7 @@
 
 #include <Engine/Math/cMatrix_transformation.h>
 #include <Engine/ControllerInput/ControllerInput.h>
+#include <Engine/UserInput/UserInput.h>
 
 // Initialization / Clean Up
 //--------------------------
@@ -66,19 +67,68 @@ eae6320::Math::cMatrix_transformation eae6320::cCameraComponent::GetCameraToProj
 
 void eae6320::cCameraComponent::UpdateInput()
 {
-	HandleMovement();
-	HandleRotation();
+	HandleMovementInput();
+	HandleRotationInput();
 }
 
-void eae6320::cCameraComponent::HandleMovement()
+void eae6320::cCameraComponent::HandleMovementInput()
+{
+	Math::sVector movement = GetControllerMovementInput();
+	movement += GetKeyboardMovementInput();
+	SetVelocity(movement);
+}
+
+eae6320::Math::sVector eae6320::cCameraComponent::GetControllerMovementInput()
+{
+	float x_movement = 0.0f;
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::A))
+	{
+		x_movement -= 1.0f;
+	}
+
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::D))
+	{
+		x_movement += 1.0f;
+	}
+
+	float y_movement = 0.0f;
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Up))
+	{
+		y_movement += 1.0f;
+	}
+
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Down))
+	{
+		y_movement -= 1.0f;
+	}
+
+	float z_movement = 0.0f;
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::W))
+	{
+		z_movement += 1.0f;
+	}
+
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::S))
+	{
+		z_movement -= 1.0f;
+	}
+
+	Math::sVector forward = GetForward() * z_movement;
+
+	Math::sVector lateral = Math::Cross(GetForward(), Math::sVector(0.0f, 1.0f, 0.0f));
+	lateral *= x_movement;
+
+	Math::sVector vertical = Math::sVector(0.0f, 1.0f, 0.0f);
+	vertical *= y_movement;
+
+	return (forward + lateral + vertical) * m_movementSpeed;
+}
+
+eae6320::Math::sVector eae6320::cCameraComponent::GetKeyboardMovementInput()
 {
 	Math::sVector leftStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_STICK, 0);
 	float leftTriggerDeflection = -UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_TRIGGER, 0);
 	float rightTriggerDeflection = UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_TRIGGER, 0);
-
-	leftStickDeflection *= m_movementSpeed;
-	leftTriggerDeflection *= m_movementSpeed;
-	rightTriggerDeflection *= m_movementSpeed;
 
 	Math::sVector forward = GetForward() * leftStickDeflection.y;
 
@@ -88,11 +138,33 @@ void eae6320::cCameraComponent::HandleMovement()
 	Math::sVector vertical = Math::sVector(0.0f, 1.0f, 0.0f);
 	vertical *= leftTriggerDeflection + rightTriggerDeflection;
 
-	SetVelocity(forward + lateral + vertical);
+	return (forward + lateral + vertical) * m_movementSpeed;
 }
 
-void eae6320::cCameraComponent::HandleRotation()
+void eae6320::cCameraComponent::HandleRotationInput()
+{
+	float angularSpeed = GetControllerRotationInput();
+	angularSpeed += GetKeyboardRotationInput();
+	m_rigidBody.angularSpeed = angularSpeed;
+}
+
+float eae6320::cCameraComponent::GetControllerRotationInput()
 {
 	Math::sVector rightStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_STICK, 0);
-	m_rigidBody.angularSpeed = -rightStickDeflection.x * m_rotationSpeed;
+	return -rightStickDeflection.x * m_rotationSpeed;
+}
+
+float eae6320::cCameraComponent::GetKeyboardRotationInput()
+{
+	float angularSpeed = 0.0f;
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Left))
+	{
+		angularSpeed += 1.0f;
+	}
+
+	if (UserInput::IsKeyPressed(UserInput::KeyCodes::Right))
+	{
+		angularSpeed -= 1.0f;
+	}
+	return angularSpeed * m_rotationSpeed;
 }
