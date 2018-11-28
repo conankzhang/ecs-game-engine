@@ -20,15 +20,15 @@ namespace eae6320
 	{
 		ComponentManager::ComponentManager()
 		{ 
-			m_components.resize(65536);
+			m_components.resize(1024);
 			m_entityComponentMap.resize(1024);
 			for (std::vector<size_t> v : m_entityComponentMap)
 			{
-				v.resize(65536);
+				v.resize(1024);
 			}
 			std::vector< std::vector<size_t> >::iterator row;
 			for (row = m_entityComponentMap.begin(); row != m_entityComponentMap.end(); row++) {
-				row->resize(65536);
+				row->resize(1024);
 			}
 		}
 

@@ -44,9 +44,9 @@ namespace
 		float m_green;
 		float m_blue;
 		float m_alpha;
-		eae6320::Graphics::cMesh* m_meshes[65536];
-		eae6320::Graphics::cEffect* m_effects[65536];
-		eae6320::Graphics::ConstantBufferFormats::sPerDrawCall m_constantData[65536];
+		eae6320::Graphics::cMesh* m_meshes[256];
+		eae6320::Graphics::cEffect* m_effects[256];
+		eae6320::Graphics::ConstantBufferFormats::sPerDrawCall m_constantData[256];
 		uint16_t m_count;
 	};
 	// In our class there will be two copies of the data required to render a frame:
