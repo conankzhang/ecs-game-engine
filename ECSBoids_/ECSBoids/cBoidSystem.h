@@ -15,6 +15,7 @@
 namespace eae6320
 {
 	class cGoalComponent;
+	class cBoidComponent;
 }
 
 // Class Declaration
@@ -31,8 +32,13 @@ namespace eae6320
 		virtual void Initialize() override;
 		virtual void Update(float i_deltaTime) override;
 
+	protected:
+
+		Math::sVector CalculateSeparation(cBoidComponent* i_boidComponent);
+
 	private:
 		cGoalComponent* m_goal;
+		float m_seperationDistance;
 	};
 }
 
