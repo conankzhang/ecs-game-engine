@@ -5,6 +5,9 @@
 #include "cBoidComponent.h"
 #include "cGoalComponent.h"
 
+#include <Engine/ControllerInput/ControllerInput.h>
+#include <Engine/UserInput/UserInput.h>
+
 // Initialization / Clean Up
 //--------------------------
 
@@ -29,6 +32,25 @@ void eae6320::cBoidSystem::Initialize()
 	m_seperationStrength = 20.0f;
 	m_cohesionStrength = 1.0f;
 	m_goalStrength = 20.0f;
+
+	m_changeSpeed = 5.0f;
+}
+
+void eae6320::cBoidSystem::PreUpdate(float i_deltaTime)
+{
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::DPAD_UP) ||
+	UserInput::IsKeyPressed(UserInput::KeyCodes::PageUp)
+	)
+	{
+		m_cohesionStrength += m_changeSpeed; 
+	}
+
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::DPAD_DOWN) ||
+		UserInput::IsKeyPressed(UserInput::KeyCodes::PageDown)
+		)
+	{
+		m_cohesionStrength -= m_changeSpeed;
+	}
 }
 
 // Implementation

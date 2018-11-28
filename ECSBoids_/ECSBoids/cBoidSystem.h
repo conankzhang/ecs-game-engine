@@ -30,6 +30,7 @@ namespace eae6320
 		~cBoidSystem();
 
 		virtual void Initialize() override;
+		virtual void PreUpdate(float i_deltaTime) override;
 		virtual void Update(float i_deltaTime) override;
 
 	protected:
@@ -47,6 +48,8 @@ namespace eae6320
 		float m_seperationStrength;
 		float m_cohesionStrength;
 		float m_goalStrength;
+
+		float m_changeSpeed;
 	};
 }
 

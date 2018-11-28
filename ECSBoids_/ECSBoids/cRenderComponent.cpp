@@ -14,7 +14,7 @@ eae6320::cRenderComponent::cRenderComponent(const char* const i_prefabPath, Math
 
 	m_rigidBody.position = i_position;
 	m_rigidBody.orientation = i_orientation;
-	m_maxSpeed = 5.0f;
+	m_maxSpeed = 20.0f;
 	m_clampSpeed = false;
 }
 
