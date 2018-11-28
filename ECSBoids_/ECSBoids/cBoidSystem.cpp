@@ -22,6 +22,7 @@ void eae6320::cBoidSystem::Initialize()
 {
 	m_goal= *m_componentManager->begin<cGoalComponent>();
 
+	m_neighborDistance = 10.0f;
 	m_seperationDistance = 10.0f;
 	m_cohesionDistance = 10.0f;
 }
@@ -37,18 +38,37 @@ void eae6320::cBoidSystem::Update(float i_deltaTime)
 	{
 		if (*boidComponent && (*boidComponent)->IsActive())
 		{
+			std::vector<cBoidComponent*> neighbors;
+			CalculateNeighbors(neighbors, *boidComponent);
+
 			//Math::sVector desiredVelocity = goalPosition - boidComponent->GetPosition();
-			Math::sVector acceleration = CalculateSeparation(*boidComponent);
-			//acceleration += CalculateCohesion(*boidComponent);
+			Math::sVector acceleration = CalculateSeparation(neighbors, *boidComponent);
+			acceleration += CalculateCohesion(neighbors, *boidComponent);
 			(*boidComponent)->SetAcceleration(acceleration);
 		}
 	}
 }
 
-eae6320::Math::sVector eae6320::cBoidSystem::CalculateSeparation(cBoidComponent* i_boidComponent)
+void eae6320::cBoidSystem::CalculateNeighbors(std::vector<cBoidComponent*>& o_neighbors, cBoidComponent* i_boidComponent)
+{
+	for (auto boidComponent = m_componentManager->begin<cBoidComponent>(); boidComponent != m_componentManager->end<cBoidComponent>(); ++boidComponent)
+	{
+		if (*boidComponent && (*boidComponent)->IsActive() && (*boidComponent) != i_boidComponent)
+		{
+			Math::sVector distance = i_boidComponent->GetPosition() - (*boidComponent)->GetPosition();
+			if (distance.GetLength() < m_neighborDistance)
+			{
+				o_neighbors.push_back(*boidComponent);
+			}
+		}
+	}
+}
+
+
+eae6320::Math::sVector eae6320::cBoidSystem::CalculateSeparation(const std::vector<cBoidComponent*>& i_neighbors, cBoidComponent* i_boidComponent)
 {
 	Math::sVector seperation = Math::sVector();
-	for (auto boidComponent = m_componentManager->begin<cBoidComponent>(); boidComponent != m_componentManager->end<cBoidComponent>(); ++boidComponent)
+	for (auto boidComponent = i_neighbors.begin(); boidComponent != i_neighbors.end(); ++boidComponent)
 	{
 		if (*boidComponent && (*boidComponent)->IsActive() && (*boidComponent) != i_boidComponent)
 		{
@@ -62,11 +82,11 @@ eae6320::Math::sVector eae6320::cBoidSystem::CalculateSeparation(cBoidComponent*
 	return seperation;
  }
 
-eae6320::Math::sVector eae6320::cBoidSystem::CalculateCohesion(cBoidComponent* i_boidComponent)
+eae6320::Math::sVector eae6320::cBoidSystem::CalculateCohesion(const std::vector<cBoidComponent*>& i_neighbors, cBoidComponent* i_boidComponent)
 {
 	Math::sVector cohesion = Math::sVector();
 	float count = 1;
-	for (auto boidComponent = m_componentManager->begin<cBoidComponent>(); boidComponent != m_componentManager->end<cBoidComponent>(); ++boidComponent)
+	for (auto boidComponent = i_neighbors.begin(); boidComponent != i_neighbors.end(); ++boidComponent)
 	{
 		if (*boidComponent && (*boidComponent)->IsActive() && *boidComponent != i_boidComponent)
 		{

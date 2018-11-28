@@ -34,11 +34,13 @@ namespace eae6320
 
 	protected:
 
-		Math::sVector CalculateSeparation(cBoidComponent* i_boidComponent);
-		Math::sVector CalculateCohesion(cBoidComponent* i_boidComponent);
+		void CalculateNeighbors(std::vector<cBoidComponent*>& o_neighbors, cBoidComponent* i_boidComponent);
+		Math::sVector CalculateSeparation(const std::vector<cBoidComponent*>& i_neighbors, cBoidComponent* i_boidComponent);
+		Math::sVector CalculateCohesion(const std::vector<cBoidComponent*>& i_neighbors, cBoidComponent* i_boidComponent);
 
 	private:
 		cGoalComponent* m_goal;
+		float m_neighborDistance;
 		float m_seperationDistance;
 		float m_cohesionDistance;
 	};
