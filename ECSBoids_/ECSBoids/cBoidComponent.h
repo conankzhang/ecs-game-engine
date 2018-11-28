@@ -27,6 +27,7 @@ namespace eae6320
 	public:
 		cBoidComponent(cRenderComponent* i_boidRenderComponent);
 
+		Math::sVector GetForward();
 		Math::sVector GetPosition();
 		void SetVelocity(Math::sVector i_velocity);
 

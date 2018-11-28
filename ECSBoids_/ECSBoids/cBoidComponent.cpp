@@ -12,6 +12,11 @@ eae6320::cBoidComponent::cBoidComponent(cRenderComponent* i_boidRenderComponent)
 	m_boidRenderComponent = i_boidRenderComponent;
 }
 
+eae6320::Math::sVector eae6320::cBoidComponent::GetForward()
+{
+	return m_boidRenderComponent->GetForward();
+}
+
 // Implementation
 //===============
 
