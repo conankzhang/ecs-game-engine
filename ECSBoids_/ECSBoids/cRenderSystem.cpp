@@ -23,8 +23,7 @@ eae6320::cRenderSystem::~cRenderSystem()
 
 void eae6320::cRenderSystem::Initialize()
 {
-	auto cameraIterator = m_componentManager->begin<cCameraComponent>();
-	m_cameraComponent = dynamic_cast<cCameraComponent*>(cameraIterator->second);
+	m_cameraComponent = *m_componentManager->begin<cCameraComponent>();
 }
 
 // Implementation
@@ -34,13 +33,11 @@ void eae6320::cRenderSystem::Update(float deltaTime)
 {
 	m_cameraComponent->Update(deltaTime);
 
-	for (auto component = m_componentManager->begin<cRenderComponent>(); component != m_componentManager->end<cRenderComponent>(); ++component)
+	for (auto renderComponent = m_componentManager->begin<cRenderComponent>(); renderComponent != m_componentManager->end<cRenderComponent>(); ++renderComponent)
 	{
-		cRenderComponent* renderComponent = dynamic_cast<cRenderComponent*>(component->second);
-
-		if (renderComponent && renderComponent->IsActive())
+		if (*renderComponent && (*renderComponent)->IsActive())
 		{
-			renderComponent->Update(deltaTime);
+			(*renderComponent)->Update(deltaTime);
 		}
 	}
 }
@@ -51,13 +48,11 @@ void eae6320::cRenderSystem::SubmitDataToBeRendered(const float i_deltaSystemTim
 
 	Graphics::SubmitCamera(m_cameraComponent->GetWorldToCameraTransform(i_deltaTime), m_cameraComponent->GetCameraToProjectedTransform(), i_deltaSystemTime, i_deltaTime);
 
-	for (auto component = m_componentManager->begin<cRenderComponent>(); component != m_componentManager->end<cRenderComponent>(); ++component)
+	for (auto renderComponent = m_componentManager->begin<cRenderComponent>(); renderComponent != m_componentManager->end<cRenderComponent>(); ++renderComponent)
 	{
-		cRenderComponent* renderComponent = dynamic_cast<cRenderComponent*>(component->second);
-
-		if (renderComponent && renderComponent->IsActive())
+		if ((*renderComponent) && (*renderComponent)->IsActive())
 		{
-			Graphics::SubmitGameObject(renderComponent->GetMesh(), renderComponent->GetEffect() , renderComponent->GetTransform(i_deltaTime));
+			Graphics::SubmitGameObject((*renderComponent)->GetMesh(), (*renderComponent)->GetEffect(), (*renderComponent)->GetTransform(i_deltaTime));
 		}
 	}
 }

@@ -20,6 +20,7 @@ namespace eae6320
 	{
 		ComponentManager::ComponentManager()
 		{ 
+			m_components.resize(65536);
 			m_entityComponentMap.resize(1024);
 			for (std::vector<size_t> v : m_entityComponentMap)
 			{
@@ -33,13 +34,10 @@ namespace eae6320
 
 		ComponentManager::~ComponentManager()
 		{
-			for (auto components : m_componentMap)
+			for (auto component : m_components)
 			{
-				for (auto component : components.second)
-				{
-					delete component.second;
-					component.second = nullptr;
-				}
+				delete component;
+				component = nullptr;
 			}
 		}
 	}

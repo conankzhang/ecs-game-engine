@@ -25,13 +25,11 @@ eae6320::cPhysicsSystem::~cPhysicsSystem()
 
 void eae6320::cPhysicsSystem::PreUpdate(float deltaTime)
 {
-	for (auto component = m_componentManager->begin<cRigidbodyComponent>(); component != m_componentManager->end<cRigidbodyComponent>(); ++component)
+	for (auto rigidBodyComponent = m_componentManager->begin<cRigidbodyComponent>(); rigidBodyComponent != m_componentManager->end<cRigidbodyComponent>(); ++rigidBodyComponent)
 	{
-		cRigidbodyComponent* rigidBodyComponent = dynamic_cast<cRigidbodyComponent*>(component->second);
-
-		if (rigidBodyComponent && rigidBodyComponent->IsActive())
+		if (*rigidBodyComponent && (*rigidBodyComponent)->IsActive())
 		{
-			rigidBodyComponent->Update(deltaTime);
+			(*rigidBodyComponent)->Update(deltaTime);
 		}
 	}
 }

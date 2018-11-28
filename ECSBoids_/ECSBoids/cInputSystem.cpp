@@ -24,11 +24,9 @@ eae6320::cInputSystem::~cInputSystem()
 
 void eae6320::cInputSystem::Initialize()
 {
-	auto cameraIterator = m_componentManager->begin<cCameraComponent>();
-	m_cameraComponent = dynamic_cast<cCameraComponent*>(cameraIterator->second);
+	m_cameraComponent = *m_componentManager->begin<cCameraComponent>();
 
-	auto goalIterator = m_componentManager->begin<cGoalComponent>();
-	m_goalComponent = dynamic_cast<cGoalComponent*>(goalIterator->second);
+	m_goalComponent = *m_componentManager->begin<cGoalComponent>();
 
 	m_aIsPressed = false;
 	m_spaceIsPressed = false;
