@@ -84,8 +84,11 @@ eae6320::Math::sVector eae6320::cBoidSystem::CalculateSeparation(const std::vect
 			float distance = distanceVector.GetLength();
 			if (distance < m_seperationDistance)
 			{
-				distanceVector.Normalize();
-				distanceVector /= distance;
+				if (distance > 0)
+				{
+					distanceVector.Normalize();
+					distanceVector /= distance;
+				}
 
 				seperation += distanceVector;
 			}
