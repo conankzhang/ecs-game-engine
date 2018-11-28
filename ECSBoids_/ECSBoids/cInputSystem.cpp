@@ -36,7 +36,7 @@ void eae6320::cInputSystem::Initialize()
 	m_goalFollowDistance = 5.0f;
 	m_minGoalFollowDistance = m_goalFollowDistance;
 	m_maxGoalFollowDistance = 50.0f;
-	m_changeDistanceSpeed = 0.1f;
+	m_changeDistanceSpeed = 0.01f;
 }
 
 // Implementation

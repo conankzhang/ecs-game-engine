@@ -26,7 +26,7 @@ void eae6320::cBoidSystem::Initialize()
 	m_seperationDistance = 5.0f;
 	m_cohesionDistance = 5.0f;
 
-	m_seperationStrength = 1.0f;
+	m_seperationStrength = 20.0f;
 	m_cohesionStrength = 1.0f;
 	m_goalStrength = 20.0f;
 }
