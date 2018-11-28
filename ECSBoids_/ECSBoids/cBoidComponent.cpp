@@ -35,3 +35,13 @@ void eae6320::cBoidComponent::SetVelocity(Math::sVector i_velocity)
 
 	m_boidRenderComponent->SetAngularSpeed(exteriorProduct);
 }
+
+void eae6320::cBoidComponent::SetAcceleration(Math::sVector i_acceleration)
+{
+	m_boidRenderComponent->SetAcceleration(i_acceleration);
+
+	Math::sVector forward = m_boidRenderComponent->GetForward();
+	float exteriorProduct = i_acceleration.x * forward.z - i_acceleration.z * forward.x;
+
+	m_boidRenderComponent->SetAngularSpeed(exteriorProduct);
+}

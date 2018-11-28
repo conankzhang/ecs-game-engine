@@ -42,6 +42,7 @@ namespace eae6320
 		void Update(const float i_deltaTime);
 
 		void SetVelocity(Math::sVector i_velocity);
+		void SetAcceleration(Math::sVector i_acceleration);
 		void SetAngularSpeed(float i_speed);
 		void SetRotationAxis(Math::sVector i_rotationAxis);
 

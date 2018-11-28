@@ -41,7 +41,7 @@ void eae6320::cBoidSystem::Update(float i_deltaTime)
 		{
 			//Math::sVector desiredVelocity = goalPosition - boidComponent->GetPosition();
 			Math::sVector velocity = CalculateSeparation(boidComponent);
-			boidComponent->SetVelocity(velocity);
+			boidComponent->SetAcceleration(velocity);
 		}
 	}
 }
