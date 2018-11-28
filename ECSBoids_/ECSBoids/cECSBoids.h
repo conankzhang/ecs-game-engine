@@ -86,6 +86,8 @@ namespace eae6320
 		ECS::ECSEngine* ECS;
 		bool m_bIsPressed;
 		bool m_shiftIsPressed;
+		int m_entityCount = 0;
+		int m_maxEntityCount = 100;
 	};
 }
 

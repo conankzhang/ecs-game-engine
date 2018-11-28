@@ -40,8 +40,9 @@ void eae6320::cECSBoids::UpdateBasedOnInput()
 		EAE6320_ASSERT( result );
 	}
 
-	if (!m_bIsPressed && UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::B))
+	if (!m_bIsPressed && UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::B) && m_entityCount < m_maxEntityCount)
 	{
+		m_entityCount++;
 		m_bIsPressed = true;
 		ECS->GetEntityManager()->CreateEntity<cBoid>();
 	}
@@ -51,8 +52,9 @@ void eae6320::cECSBoids::UpdateBasedOnInput()
 		m_bIsPressed = false;
 	}
 
-	if (!m_shiftIsPressed && UserInput::IsKeyPressed(UserInput::KeyCodes::Shift))
+	if (!m_shiftIsPressed && UserInput::IsKeyPressed(UserInput::KeyCodes::Shift) && m_entityCount < m_maxEntityCount)
 	{
+		m_entityCount++;
 		m_shiftIsPressed = true;
 		ECS->GetEntityManager()->CreateEntity<cBoid>();
 	}
