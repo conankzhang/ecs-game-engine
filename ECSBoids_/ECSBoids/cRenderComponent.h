@@ -53,12 +53,14 @@ namespace eae6320
 		void SetPosition(Math::sVector i_position);
 
 		Math::cMatrix_transformation GetTransform(const float i_deltaTime);
+		bool m_clampSpeed;
 
 	protected:
 		Graphics::cMesh* m_mesh;
 		Graphics::cEffect* m_effect;
 
 		Physics::sRigidBodyState m_rigidBody;
+		float m_maxSpeed;
 	};
 }
 

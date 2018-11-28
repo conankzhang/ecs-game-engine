@@ -14,6 +14,8 @@ eae6320::cRenderComponent::cRenderComponent(const char* const i_prefabPath, Math
 
 	m_rigidBody.position = i_position;
 	m_rigidBody.orientation = i_orientation;
+	m_maxSpeed = 5.0f;
+	m_clampSpeed = false;
 }
 
 // Initialization / Clean Up
@@ -79,6 +81,11 @@ eae6320::Graphics::cEffect* eae6320::cRenderComponent::GetEffect()
 
 void eae6320::cRenderComponent::Update(const float i_deltaTime)
 {
+	if (m_clampSpeed && m_rigidBody.velocity.GetLength() > m_maxSpeed)
+	{
+		m_rigidBody.velocity.Normalize();
+		m_rigidBody.velocity *= m_maxSpeed;
+	}
 	m_rigidBody.Update(i_deltaTime);
 }
 

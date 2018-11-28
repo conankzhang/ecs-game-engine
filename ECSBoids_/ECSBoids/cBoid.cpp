@@ -20,5 +20,6 @@ void eae6320::cBoid::Initialize()
 {
 
 	AddComponent<cRenderComponent>("data/prefabs/boid.prefab", Math::sVector((float)(rand() % 5), 5.0f, (float)(rand() % 5)), Math::cQuaternion());
+	GetComponent<cRenderComponent>()->m_clampSpeed = true;
 	AddComponent<cBoidComponent>(GetComponent<cRenderComponent>());
 }
