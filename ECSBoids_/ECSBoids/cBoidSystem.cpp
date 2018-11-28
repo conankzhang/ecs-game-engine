@@ -51,6 +51,20 @@ void eae6320::cBoidSystem::PreUpdate(float i_deltaTime)
 	{
 		m_cohesionStrength -= m_changeSpeed;
 	}
+
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::DPAD_RIGHT) ||
+	UserInput::IsKeyPressed(UserInput::KeyCodes::Home)
+	)
+	{
+		m_goalStrength += m_changeSpeed; 
+	}
+
+	if (UserInput::ControllerInput::IsKeyPressed(UserInput::ControllerInput::ControllerKeyCodes::DPAD_LEFT) ||
+		UserInput::IsKeyPressed(UserInput::KeyCodes::End)
+		)
+	{
+		m_goalStrength -= m_changeSpeed;
+	}
 }
 
 // Implementation
