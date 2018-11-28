@@ -31,6 +31,7 @@ namespace eae6320
 		Math::sVector GetPosition();
 		void SetVelocity(Math::sVector i_velocity);
 		void SetAcceleration(Math::sVector i_acceleration);
+		void SetAngularSpeedBasedOnPosition(Math::sVector i_position);
 
 	protected:
 		cRenderComponent* m_boidRenderComponent;

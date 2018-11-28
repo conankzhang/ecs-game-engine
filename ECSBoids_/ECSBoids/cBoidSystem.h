@@ -43,6 +43,10 @@ namespace eae6320
 		float m_neighborDistance;
 		float m_seperationDistance;
 		float m_cohesionDistance;
+
+		float m_seperationStrength;
+		float m_cohesionStrength;
+		float m_goalStrength;
 	};
 }
 

@@ -19,6 +19,6 @@ eae6320::cBoid::cBoid()
 void eae6320::cBoid::Initialize()
 {
 
-	AddComponent<cRenderComponent>("data/prefabs/boid.prefab", Math::sVector((float)(rand() % 5), 2.5f, (float)(rand() % 5)), Math::cQuaternion());
+	AddComponent<cRenderComponent>("data/prefabs/boid.prefab", Math::sVector((float)(rand() % 5), 5.0f, (float)(rand() % 5)), Math::cQuaternion());
 	AddComponent<cBoidComponent>(GetComponent<cRenderComponent>());
 }

@@ -22,9 +22,13 @@ void eae6320::cBoidSystem::Initialize()
 {
 	m_goal= *m_componentManager->begin<cGoalComponent>();
 
-	m_neighborDistance = 10.0f;
-	m_seperationDistance = 10.0f;
-	m_cohesionDistance = 10.0f;
+	m_neighborDistance = 5.0f;
+	m_seperationDistance = 5.0f;
+	m_cohesionDistance = 5.0f;
+
+	m_seperationStrength = 1.0f;
+	m_cohesionStrength = 1.0f;
+	m_goalStrength = 20.0f;
 }
 
 // Implementation
@@ -41,10 +45,14 @@ void eae6320::cBoidSystem::Update(float i_deltaTime)
 			std::vector<cBoidComponent*> neighbors;
 			CalculateNeighbors(neighbors, *boidComponent);
 
-			//Math::sVector desiredVelocity = goalPosition - boidComponent->GetPosition();
+			Math::sVector goalInfluence = goalPosition - (*boidComponent)->GetPosition();
+			goalInfluence.Normalize();
+
 			Math::sVector acceleration = CalculateSeparation(neighbors, *boidComponent);
 			acceleration += CalculateCohesion(neighbors, *boidComponent);
+			acceleration += goalInfluence * m_goalStrength;
 			(*boidComponent)->SetAcceleration(acceleration);
+			(*boidComponent)->SetAngularSpeedBasedOnPosition(goalInfluence);
 		}
 	}
 }
@@ -72,19 +80,23 @@ eae6320::Math::sVector eae6320::cBoidSystem::CalculateSeparation(const std::vect
 	{
 		if (*boidComponent && (*boidComponent)->IsActive() && (*boidComponent) != i_boidComponent)
 		{
-			Math::sVector distance = i_boidComponent->GetPosition() - (*boidComponent)->GetPosition();
-			if (distance.GetLength() < m_seperationDistance)
+			Math::sVector distanceVector = i_boidComponent->GetPosition() - (*boidComponent)->GetPosition();
+			float distance = distanceVector.GetLength();
+			if (distance < m_seperationDistance)
 			{
-				seperation += distance;
+				distanceVector.Normalize();
+				distanceVector /= distance;
+
+				seperation += distanceVector;
 			}
 		}
 	}
-	return seperation;
+	return seperation * m_seperationStrength;
  }
 
 eae6320::Math::sVector eae6320::cBoidSystem::CalculateCohesion(const std::vector<cBoidComponent*>& i_neighbors, cBoidComponent* i_boidComponent)
 {
-	Math::sVector cohesion = Math::sVector();
+	Math::sVector cohesion = i_boidComponent->GetPosition();
 	float count = 1;
 	for (auto boidComponent = i_neighbors.begin(); boidComponent != i_neighbors.end(); ++boidComponent)
 	{
@@ -97,8 +109,8 @@ eae6320::Math::sVector eae6320::cBoidSystem::CalculateCohesion(const std::vector
 				count++;
 			}
 		}
-
-		cohesion /= count;
 	}
-	return cohesion - i_boidComponent->GetPosition();
+
+	cohesion /= count;
+	return (cohesion - i_boidComponent->GetPosition()) * m_cohesionStrength;
 }

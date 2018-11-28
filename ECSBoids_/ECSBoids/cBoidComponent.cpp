@@ -29,19 +29,17 @@ eae6320::Math::sVector eae6320::cBoidComponent::GetPosition()
 void eae6320::cBoidComponent::SetVelocity(Math::sVector i_velocity)
 {
 	m_boidRenderComponent->SetVelocity(i_velocity);
-
-	Math::sVector forward = m_boidRenderComponent->GetForward();
-	float exteriorProduct = i_velocity.x * forward.z - i_velocity.z * forward.x;
-
-	m_boidRenderComponent->SetAngularSpeed(exteriorProduct);
 }
 
 void eae6320::cBoidComponent::SetAcceleration(Math::sVector i_acceleration)
 {
 	m_boidRenderComponent->SetAcceleration(i_acceleration);
+}
 
+void eae6320::cBoidComponent::SetAngularSpeedBasedOnPosition(Math::sVector i_position)
+{
 	Math::sVector forward = m_boidRenderComponent->GetForward();
-	float exteriorProduct = i_acceleration.x * forward.z - i_acceleration.z * forward.x;
+	float exteriorProduct = i_position.x * forward.z - i_position.z * forward.x;
 
 	m_boidRenderComponent->SetAngularSpeed(exteriorProduct);
 }

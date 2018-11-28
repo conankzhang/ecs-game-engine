@@ -95,12 +95,6 @@ void eae6320::cRenderComponent::SetVelocity(Math::sVector i_velocity)
 
 void eae6320::cRenderComponent::SetAcceleration(Math::sVector i_acceleration)
 {
-	if (m_rigidBody.position.y < 1.0f)
-	{
-		m_rigidBody.acceleration = Math::sVector(i_acceleration.x, 10.0f, i_acceleration.z);
-		return;
-	}
-
 	m_rigidBody.acceleration= i_acceleration;
 }
 
