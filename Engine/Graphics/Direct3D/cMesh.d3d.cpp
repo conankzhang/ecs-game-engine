@@ -82,7 +82,7 @@ eae6320::cResult eae6320::Graphics::cMesh::InitializeGeometry(VertexFormats::sMe
 	{
 		D3D11_BUFFER_DESC bufferDescription{};
 		{
-			const auto bufferSize = i_indexCount * sizeof( eae6320::Graphics::VertexFormats::sMesh );
+			const auto bufferSize = i_vertexCount * sizeof( eae6320::Graphics::VertexFormats::sMesh );
 			EAE6320_ASSERT( bufferSize < ( uint64_t( 1u ) << ( sizeof( bufferDescription.ByteWidth ) * 8 ) ) );
 			bufferDescription.ByteWidth = static_cast<unsigned int>( bufferSize );
 			bufferDescription.Usage = D3D11_USAGE_IMMUTABLE;	// In our class the buffer will never change after it's been created
