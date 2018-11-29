@@ -87,7 +87,7 @@ namespace eae6320
 		bool m_bIsPressed;
 		bool m_shiftIsPressed;
 		int m_entityCount = 0;
-		int m_maxEntityCount = 100;
+		int m_maxEntityCount = 80;
 	};
 }
 
