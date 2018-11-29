@@ -35,8 +35,8 @@ namespace eae6320
 
 	protected:
 		void HandleMovementInput();
-		Math::sVector GetControllerMovementInput();
 		Math::sVector GetKeyboardMovementInput();
+		Math::sVector GetControllerMovementInput();
 		Math::sVector GetMovementInput(float i_xInput, float i_yInput, float i_zInput);
 
 		void HandleRotationInput();
@@ -52,9 +52,13 @@ namespace eae6320
 		const float m_z_nearPlane = 0.1f;
 		const float m_z_farPlane = 500.0f;
 
-		const float m_verticalMovementSpeed = 10.0f;
-		const float m_horizontalMovementSpeed = 1500.0f;
-		const float m_rotationSpeed = 20000.0f;
+		const float m_controllerVerticalMovementSpeed = 17.0f;
+		const float m_controllerHorizontalMovementSpeed = 1500.0f;
+		const float m_controllerRotationSpeed = 20000.0f;
+
+		const float m_keyboardVerticalMovementSpeed = 10.0f;
+		const float m_keyboardHorizontalMovementSpeed = 15.0f;
+		const float m_keyboardRotationSpeed = 1.75f;
 	};
 }
 
