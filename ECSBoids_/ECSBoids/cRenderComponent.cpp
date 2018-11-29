@@ -91,7 +91,7 @@ void eae6320::cRenderComponent::Update(const float i_deltaTime)
 
 void eae6320::cRenderComponent::SetVelocity(Math::sVector i_velocity)
 {
-	if (m_rigidBody.position.y < 1.0f && i_velocity.y < 0.0f)
+	if (m_rigidBody.position.y < 5.0f && i_velocity.y < 0.0f)
 	{
 		m_rigidBody.velocity = Math::sVector(i_velocity.x, 0.0f, i_velocity.z);
 		return;
