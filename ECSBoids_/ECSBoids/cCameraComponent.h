@@ -52,8 +52,9 @@ namespace eae6320
 		const float m_z_nearPlane = 0.1f;
 		const float m_z_farPlane = 500.0f;
 
-		const float m_movementSpeed = 10.0f;
-		const float m_rotationSpeed = 2.0f;
+		const float m_verticalMovementSpeed = 10.0f;
+		const float m_horizontalMovementSpeed = 1500.0f;
+		const float m_rotationSpeed = 20000.0f;
 	};
 }
 

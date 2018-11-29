@@ -118,9 +118,14 @@ eae6320::Math::sVector eae6320::cCameraComponent::GetControllerMovementInput()
 
 eae6320::Math::sVector eae6320::cCameraComponent::GetKeyboardMovementInput()
 {
-	Math::sVector leftStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_STICK, 0);
-	float leftTriggerDeflection = -UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_TRIGGER, 0);
-	float rightTriggerDeflection = UserInput::ControllerInput::GetNormalizedTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_TRIGGER, 0);
+	Math::sVector leftStickDeflection = UserInput::ControllerInput::GetStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_STICK, 0);
+	leftStickDeflection /= m_horizontalMovementSpeed;
+
+	float leftTriggerDeflection = -UserInput::ControllerInput::GetTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::LEFT_TRIGGER, 0);
+	leftTriggerDeflection /= m_verticalMovementSpeed;
+
+	float rightTriggerDeflection = UserInput::ControllerInput::GetTriggerDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_TRIGGER, 0);
+	rightTriggerDeflection /= m_verticalMovementSpeed;
 
 	return GetMovementInput(leftStickDeflection.x, leftTriggerDeflection + rightTriggerDeflection, leftStickDeflection.y);
 }
@@ -135,7 +140,7 @@ eae6320::Math::sVector eae6320::cCameraComponent::GetMovementInput(float i_xInpu
 	Math::sVector vertical = Math::sVector(0.0f, 1.0f, 0.0f);
 	vertical *= i_yInput;
 
-	return (forward + lateral + vertical) * m_movementSpeed;
+	return (forward + lateral + vertical);
 }
 
 void eae6320::cCameraComponent::HandleRotationInput()
@@ -147,8 +152,8 @@ void eae6320::cCameraComponent::HandleRotationInput()
 
 float eae6320::cCameraComponent::GetControllerRotationInput()
 {
-	Math::sVector rightStickDeflection = UserInput::ControllerInput::GetNormalizedStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_STICK, 0);
-	return -rightStickDeflection.x * m_rotationSpeed;
+	Math::sVector rightStickDeflection = UserInput::ControllerInput::GetStickDeflection(UserInput::ControllerInput::ControllerKeyCodes::RIGHT_STICK, 0);
+	return -rightStickDeflection.x / m_rotationSpeed;
 }
 
 float eae6320::cCameraComponent::GetKeyboardRotationInput()
@@ -163,5 +168,5 @@ float eae6320::cCameraComponent::GetKeyboardRotationInput()
 	{
 		angularSpeed -= 1.0f;
 	}
-	return angularSpeed * m_rotationSpeed;
+	return angularSpeed;
 }
