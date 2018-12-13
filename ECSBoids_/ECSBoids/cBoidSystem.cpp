@@ -88,7 +88,7 @@ void eae6320::cBoidSystem::Update(float i_deltaTime)
 			acceleration += CalculateCohesion(neighbors, *boidComponent);
 			acceleration += goalInfluence * m_goalStrength;
 			(*boidComponent)->SetAcceleration(acceleration);
-			(*boidComponent)->SetAngularSpeedBasedOnPosition(goalInfluence);
+			(*boidComponent)->SetAngularSpeedBasedOnPosition(goalInfluence * m_goalStrength);
 		}
 	}
 }
